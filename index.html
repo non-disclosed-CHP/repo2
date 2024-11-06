@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMU APUS SVA Chapter</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+    /* Expandable Box Styles */
+    .expandable-box {
+        background-color: rgba(255, 255, 255, 0.54); /* Updated opacity to 0.54 */
+        border: 1px solid rgba(229, 231, 235, 0.54); /* Updated opacity to 0.54 */
+        border-radius: 8px;
+        padding: 16px;
+    }
+
+    .expandable-button {
+        background-color: rgba(59, 130, 246, 0.9); /* Updated opacity to 0.9 */
+        color: white;
+        font-size: 1rem;
+        padding: 14px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .expandable-button:hover {
+        background-color: rgba(59, 130, 246, 1); /* Updated opacity to 1 */
+    }
+
+    .leader-name {
+        color: rgba(59, 130, 246, 0.9); /* Updated opacity to 0.9 */
+        font-size: 1.125rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .leader-name:hover {
+        color: rgba(29, 78, 216, 1); /* Updated opacity to 1 */
+    }
+
+    .leader-bio {
+        display: none;
+        color: rgba(107, 114, 128, 1); /* Updated opacity to 1 */
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+
+    /* Background Settings */
+    body {
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        background-image: url('flag2.png');
+        background-attachment: fixed;
+        overflow-x: hidden;
+    }
+
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.25); /* Updated opacity to 0.25 */
+        z-index: -1;
+    }
+
+    /* SVA Logo */
+    .sva-logo {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        opacity: 0.54; /* Updated opacity to 0.54 */
+        z-index: 1000;
+    }
+
+    header {
+        background-color: rgba(255, 255, 255, 0.95); /* Updated opacity to 0.95 */
+        backdrop-filter: blur(5px);
+        padding: 16px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header a {
+        color: rgba(59, 130, 246, 0.95); /* Updated opacity to 0.95 */
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #ffffff;
+        background-color: rgba(59, 130, 246, 0.7); /* Updated opacity to 0.7 */
+    }
+
+    /* Section Styles */
+    section {
+        background-color: rgba(255, 255, 255, 0.9); /* Updated opacity to 0.9 */
+        backdrop-filter: blur(10px);
+        padding: 60px 0;
+        text-align: center;
+        margin: 40px 0;
+        border-radius: 8px;
+    }
+
+    section h2 {
+        color: rgba(59, 130, 246, 0.9); /* Updated opacity to 0.9 */
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    section p {
+        color: rgba(107, 114, 128, 1); /* Updated opacity to 1 */
+        font-size: 1.125rem;
+    }
+
+    /* Footer Styles */
+    footer {
+        background-color: rgba(255, 255, 255, 0.95); /* Updated opacity to 0.95 */
+        backdrop-filter: blur(5px);
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    footer a {
+        color: rgba(59, 130, 246, 0.9); /* Updated opacity to 0.9 */
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: rgba(59, 130, 246, 1);
+    }
+
+    footer .join-button {
+        background-color: rgba(59, 130, 246, 0.9); /* Updated opacity to 0.9 */
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+    footer .join-button:hover {
+        background-color: rgba(59, 130, 246, 1); /* Updated opacity to 1 */
+    }
+</style>
+</head>
+<body>
+
+    <!-- Navigation Links -->
+    <header>
+        <div class="container mx-auto flex justify-center space-x-4 text-sm">
+            <a href="#honor-wall" class="hover:underline">2023 Veterans Day Honor Wall Campaign</a>
+            <a href="#home" class="hover:underline">AMU / APU SVA Home</a>
+            <a href="#news" class="hover:underline">AMU SVA News</a>
+            <a href="#board-members" class="hover:underline">Board Members</a>
+            <a href="#committees" class="hover:underline">Committees</a>
+            <a href="#contact" class="hover:underline">Contact</a>
+            <a href="#career-social" class="hover:underline">SVA Career and Social Development</a>
+            <a href="#history" class="hover:underline">SVA History</a>
+            <a href="#events" class="hover:underline">Upcoming Chapter Events</a>
+            <a href="#join" class="hover:underline">Join AMU/APU SVA</a>
+            <a href="#facebook" class="hover:underline">Facebook Page</a>
+        </div>
+    </header>
+
+    <!-- Expandable Leadership Box -->
+    <div class="expandable-box" id="leadershipBox">
+        <button class="expandable-button" id="toggleButton">
+            Meet the Leadership
+        </button>
+        <div id="content" class="mt-4 space-y-2">
+            <h3 class="leader-name" onclick="toggleBio('bio1')">Leader 1</h3>
+            <p id="bio1" class="leader-bio">Leader 1 Bio: Brief description here.</p>
+
+            <h3 class="leader-name" onclick="toggleBio('bio2')">Leader 2</h3>
+            <p id="bio2" class="leader-bio">Leader 2 Bio: Brief description here.</p>
+
+            <h3 class="leader-name" onclick="toggleBio('bio3')">Leader 3</h3>
+            <p id="bio3" class="leader-bio">Leader 3 Bio: Brief description here.</p>
+
+            <h3 class="leader-name" onclick="toggleBio('bio4')">Leader 4</h3>
+            <p id="bio4" class="leader-bio">Leader 4 Bio: Brief description here.</p>
+        </div>
+    </div>
+
+<!-- Welcome Section -->
+<section class="bg-blue-700 bg-opacity-70 text-white">
+    <h1 class="text-5xl font-bold text-white">Welcome to AMU Student Veterans of America</h1>
+    <p class="mt-4 text-lg text-white">Empowering Veterans through Community, Resources, and Support. At AMU SVA, we believe in the power of community and the strength that comes from helping each other. As student veterans, we understand the unique challenges that come with balancing academics, transitioning from military life, and building a career. That’s why we are committed to providing the resources and support you need to thrive academically and professionally, while building lasting relationships with fellow veterans.</p>
+</section>
+
+<!-- About Section -->
+<section>
+    <h2>AMU Student Veterans of America Chapter</h2>
+    <p>A supportive, student-led, family-centered community bridging the gap between service and academic success. Our chapter connects military veterans with valuable resources and networks to help them succeed in their educational and professional endeavors. Whether you’re navigating the GI Bill, seeking career advice, or looking for a place to connect with like-minded individuals, AMU SVA is here to help. Our community extends beyond the classroom; we foster lasting bonds through social events, career fairs, workshops, and other initiatives designed to help veterans feel at home at AMU.</p>
+</section>
+
+<!-- Mission Section -->
+<section>
+    <h2>Who We Are</h2>
+    <p>Our leadership team, composed of veterans and advocates, is dedicated to guiding members through their academic and professional paths. We are committed to fostering a community of support, advocacy, and empowerment for all student veterans at AMU/APU. We provide mentorship, resources for academic success, and networking opportunities with professionals in various industries. Additionally, we actively work to ensure that the voices of student veterans are heard within the university administration and beyond. Whether it’s advocating for mental health services, hosting career development workshops, or providing guidance on utilizing benefits, our team is here to make sure you’re equipped with everything you need to succeed.</p>
+</section>
+<!-- Footer Links -->
+<footer>
+    <ul class="flex flex-wrap justify-center space-x-4 text-sm">
+        <li><a href="#honor-wall" class="hover:underline">2023 Veterans Day Honor Wall Campaign</a></li>
+        <li><a href="#home" class="hover:underline">AMU / APU SVA Home</a></li>
+        <li><a href="#news" class="hover:underline">AMU SVA News</a></li>
+        <li><a href="#board-members" class="hover:underline">Board Members</a></li>
+        <li><a href="#committees" class="hover:underline">Committees</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+        <li><a href="#career-social" class="hover:underline">SVA Career and Social Development</a></li>
+        <li><a href="#history" class="hover:underline">SVA History</a></li>
+        <li><a href="#events" class="hover:underline">Upcoming Chapter Events</a></li>
+        <li><a href="#join" class="hover:underline">Join AMU/APU SVA</a></li>
+        <li><a href="#facebook" class="hover:underline">Facebook Page</a></li>
+    </ul>
+    <p class="text-sm mt-4 text-gray-600">Contact Us: <a href="mailto:apussva@gmail.com" class="underline">apussva@gmail.com</a></p>
+    <div class="flex justify-center mt-4">
+        <a href="https://www.facebook.com/groups/studentveteransapus" target="_blank" class="join-facebook-button bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Join Us on Facebook</a>
+    </div>
+</footer>
+
+<style>
+    .join-facebook-button {
+        opacity: 1; /* Remove transparency */
+    }
+    .join-facebook-button:hover {
+        opacity: 1; /* Keep the button fully opaque on hover */
+    }
+</style>
+
+<!-- SVA Logo -->
+<img src="blacksva.png" alt="SVA Logo" class="sva-logo w-24 h-auto md:w-32 lg:w-40">
+
+<style>
+    /* Adjust the SVA logo without effects */
+    .sva-logo {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+        z-index: 1000;
+    }
+</style>
+
+<script>
+    // Toggle the display of the leadership content
+    document.getElementById('toggleButton').addEventListener('click', function() {
+        const content = document.getElementById('content');
+        content.style.display = content.style.display === 'none' || content.style.display === '' ? 'block' : 'none';
+    });
+
+    // Toggle individual leader bios
+    function toggleBio(bioId) {
+        const bio = document.getElementById(bioId);
+        bio.style.display = bio.style.display === 'none' || bio.style.display === '' ? 'block' : 'none';
+    }
+
+    // Initial setup: hide all bios and the expandable content on load
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('content').style.display = 'none';
+        const bios = document.querySelectorAll('.leader-bio');
+        bios.forEach(bio => bio.style.display = 'none');
+    });
+</script>
+</body>
+</html>
