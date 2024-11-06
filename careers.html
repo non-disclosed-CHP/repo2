@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVA Career and Social Development</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        /* Expandable Box Styles */
+        .expandable-box {
+            background-color: rgba(255, 255, 255, 0.54); /* Updated opacity to 0.54 */
+            border: 1px solid rgba(229, 231, 235, 0.54); /* Updated opacity to 0.54 */
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .expandable-button {
+            background-color: rgba(59, 130, 246, 0.9); /* Updated opacity to 0.9 */
+            color: white;
+            font-size: 1rem;
+            padding: 14px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .expandable-button:hover {
+            background-color: rgba(59, 130, 246, 1); /* Updated opacity to 1 */
+        }
+
+        .leader-name {
+            color: rgba(59, 130, 246, 0.9); /* Updated opacity to 0.9 */
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .leader-name:hover {
+            color: rgba(29, 78, 216, 1); /* Updated opacity to 1 */
+        }
+
+        .leader-bio {
+            display: none;
+            color: rgba(107, 114, 128, 1); /* Updated opacity to 1 */
+            font-size: 1rem;
+            padding: 10px 0;
+        }
+
+        /* Background Settings */
+        body {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            background-image: url('flag2.png');
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.25); /* Updated opacity to 0.25 */
+            z-index: -1;
+        }
+
+        /* SVA Logo */
+        .sva-logo {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            opacity: 0.54; /* Updated opacity to 0.54 */
+            z-index: 1000;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.95); /* Updated opacity to 0.95 */
+            backdrop-filter: blur(5px);
+            padding: 16px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header a {
+            color: rgba(59, 130, 246, 0.95); /* Updated opacity to 0.95 */
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffffff;
+            background-color: rgba(59, 130, 246, 0.7); /* Updated opacity to 0.7 */
+        }
+
+        /* Section Styles */
+        section {
+            background-color: rgba(255, 255, 255, 0.9); /* Updated opacity to 0.9 */
+            backdrop-filter: blur(10px);
+            padding: 60px 0;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+
+        section h2 {
+            color: rgba(59, 130, 246, 0.9); /* Updated opacity to 0.9 */
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            color: rgba(107, 114, 128, 1); /* Updated opacity to 1 */
+            font-size: 1.125rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: rgba(255, 255, 255, 0.95); /* Updated opacity to 0.95 */
+            backdrop-filter: blur(5px);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: rgba(59, 130, 246, 0.9); /* Updated opacity to 0.9 */
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: rgba(59, 130, 246, 1);
+        }
+
+        footer .join-button {
+            background-color: rgba(59, 130, 246, 0.9); /* Updated opacity to 0.9 */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        footer .join-button:hover {
+            background-color: rgba(59, 130, 246, 1); /* Updated opacity to 1 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Links (Top) -->
+    <header>
+        <div class="container mx-auto flex justify-center space-x-4 text-sm">
+            <a href="#honor-wall" class="hover:underline">2023 Veterans Day Honor Wall Campaign</a>
+            <a href="#home" class="hover:underline">AMU / APU SVA Home</a>
+            <a href="#news" class="hover:underline">AMU SVA News</a>
+            <a href="#board-members" class="hover:underline">Board Members</a>
+            <a href="#committees" class="hover:underline">Committees</a>
+            <a href="#events" class="hover:underline">Upcoming Chapter Events</a>
+        </div>
+    </header>
+
+    <!-- Career and Social Development Content -->
+    <section class="bg-blue-700 bg-opacity-70 text-white">
+        <h1 class="text-5xl font-bold text-white">SVA Career and Social Development</h1>
+        <p class="mt-4 text-lg text-white">Empowering student veterans through career readiness, project management training, and social networking opportunities.</p>
+    </section>
+
+    <section>
+        <h2>PMI Training Overview</h2>
+        <p>PMI Training offers courses that are best suited for your training needs, both in-person and virtual. PMI’s core offerings have always been dedicated to your professional development in project management and building your PMI Talent Triangle® – a combination of expertise in Ways of Working, Power Skills, and Business Acumen, as well as digital skills. PMI Training continues to enhance its learning portfolio to address the needs of our ever-changing environment.</p>
+    </section>
+
+    <section>
+        <h2>Why Should You Attend PMI Training?</h2>
+        <p>Whether you’re looking to build your leadership expertise, gain valuable skills to drive project success, or learn the basics of agile, it’s time to immerse yourself in our dynamic instructor-led training. These trainings are specifically developed for project managers by project management experts. PMI Training provides a highly interactive small-group experience in two formats: in-person and virtual. Choose from more than 100 trainings across a variety of subject areas that range in duration from 1-hour to 1-4 days, instructed in English (unless otherwise indicated).</p>
+        <p>Search through the list of upcoming opportunities in the PMI Training Catalog. Check back often as they continue to expand their programming.</p>
+    </section>
+
+    <section>
+        <h2>Upcoming Training Dates</h2>
+        <p>PMI Training provides a unique real-time learning opportunity to participate with instructors and classmates, earning up to 28 PDUs in the process. Access this link for the 2023 and 2024 catalogs. Experience PMI Training from the comfort of your home or office with virtual events or pack your bags and join them in person.</p>
+    </section>
+
+    <section>
+        <h2>Quick Guide – PM & Agile Upskilling Opportunities</h2>
+        <p>In an increasingly projectized world, Project Management Institute (PMI) professional certifications ensure you’re ready to meet the demands of projects and employers across the globe.</p>
+        <p>This is a LinkedIn overview and opportunity to get started on courses for knowledge-based skills. If you are interested in learning and want more information about PMI, you can also follow this link for a quick guide of upskilling opportunities.</p>
+        <p>MORE INFORMATION</p>
+    </section>
+
+    <section>
+        <h2>Microsoft SoCareer Readiness: Transforming Career Aspirations into Actionable Goals</h2>
+        <p>Happy New Year! If you’ve declared 2024 as the year to elevate your career, join Rowe Leathers, Sr. Career Coach, here at APUS for an insightful session on career strategizing in 2024. Discover the steps needed to make this year exceptionally productive for your professional growth. Seize the chance to unlock your full career potential and kickstart a successful journey in 2024!</p>
+        <p><strong>Date:</strong> Wednesday, January 31, 2024</p>
+        <p><strong>Time:</strong> 9:30 AM – 10:30 AM EST</p>
+        <a href="#" class="text-blue-500 hover:underline">REGISTER</a>
+    </section>
+
+    <section>
+        <h2>DAV (Disabled American Veterans) Virtual Career Fair</h2>
+        <p><strong>VIRTUAL VETERAN CAREER FAIR!</strong> Veterans, active duty and transitioning service members, and military spouses, be sure to register for the upcoming DAV and RecruitMilitary virtual job fair at 11 a.m. (Pacific) on Tuesday, January 23. Meet virtually with dozens of employers actively looking to fill roles in various industries. Once you register, you’ll be able to view a full list of companies who will be attending so that you can begin prepping your resume.</p>
+        <p><strong>Note:</strong> A virtual job fair includes both remote and in-person positions. For more info on upcoming DAV/RecruitMilitary Job Fairs and resources for veterans, spouses, and employers, visit <a href="https://jobs.dav.org" class="text-blue-500 hover:underline">jobs.dav.org</a>.</p>
+        <a href="#" class="text-blue-500 hover:underline">REGISTER</a>
+    </section>
+
+    <footer class="bg-blue-700 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 American Military University Student Veterans of America. All rights reserved.</p>
+            <a href="#" class="join-button text-white">Join Now</a>
+        </div>
+    </footer>
+
+</body>
+</html>
