@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMU APUS SVA Chapter - Honor Wall</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Honor Wall Styling */
+        .honor-card {
+            background-color: #1e293b; /* Dark navy background */
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Darker shadow */
+            margin-bottom: 24px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .honor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .honor-name {
+            color: #e5e7eb; /* Light gray for name text */
+            font-size: 1.75rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .honor-name:hover {
+            color: #cbd5e1; /* Slightly lighter gray on hover */
+        }
+
+        .honor-description {
+            color: #cbd5e1; /* Medium gray for description */
+            padding-top: 12px;
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        /* Date Styling */
+        .honor-date {
+            color: #94a3b8; /* Muted gray for dates */
+            font-size: 0.875rem;
+            margin-bottom: 10px;
+        }
+
+/* Section Styling */
+section {
+    background: url('flag2.png') no-repeat center top; /* Flag image, no repeat, centered at the top */
+    background-size: cover; /* Ensure the image covers the area */
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    margin: 60px 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-attachment: fixed; /* Flag stays fixed as user scrolls */
+}
+
+        section h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        section p {
+            font-size: 1.25rem;
+        }
+
+        /* Button Styling */
+        .expand-btn {
+            background-color: #475569; /* Darker navy */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 30px;
+            font-size: 1.125rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .expand-btn:hover {
+            background-color: #334155; /* Even darker navy on hover */
+        }
+
+        /* Pagination buttons */
+        .pagination-btn {
+            background-color: #64748b; /* Professional gray for pagination */
+            color: #f1f5f9; /* Light text for buttons */
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .pagination-btn:hover {
+            background-color: #475569;
+            color: white;
+        }
+
+        /* MyCAA Box Styling */
+        .mycaa-box {
+            background-color: #334155; /* Darker gray background */
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+
+        .mycaa-box h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e5e7eb;
+            margin-bottom: 10px;
+        }
+
+        .mycaa-box p {
+            font-size: 1rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .mycaa-box .date {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+    <!-- Navigation Links -->
+    <nav class="bg-gray-800 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white text-xl hover:text-gray-400">Homepage</a>
+            <a href="honors.html" class="text-white text-xl hover:text-gray-400">Honors Section</a>
+        </div>
+    </nav>
+
+
+    <!-- Honor Wall Section -->
+<section class="px-6 py-16 max-w-7xl mx-auto">
+    <h1>2023 Veterans Day Honor Wall</h1>
+    
+    <p class="text-xl mb-10">Check back daily for a new Honor Wall Spotlight:</p>
+
+    <!-- Honor Wall Honorees -->
+    <div class="honor-card">
+        <h2 class="honor-name" onclick="toggleDescription('bio1')">General James N. Mattis</h2>
+        <p class="honor-date">November 10, 2023</p>
+        <p id="bio1" class="honor-description hidden">United States Marine Corps Veteran & 26th US Secretary of Defense. A tribute to Former Secretary of Defense General James N. Mattis as we commemorate the USMC birthday, our profound respect and admiration are directed towards General James N. Mattis, a luminary in military leadership and strategy. His journey from Pullman, Washington, to key roles…</p>
+    </div>
+
+<div class="honor-card">
+    <h2 class="honor-name" onclick="toggleDescription('bio2')">
+        Major General Lorna Mahlock
+    </h2>
+    <p class="honor-date">November 9, 2023</p>
+    <p id="bio2" class="honor-description hidden">
+        🎖️ <strong>Celebrating Major General Lorna Mahlock’s Barrier-Breaking Leadership 🎖️</strong>
+        <br>
+        Today, we spotlight a figure of resilience, determination, and groundbreaking achievement: Major General Lorna Mahlock of the United States Marine Corps.
+        <br><br>
+        🌟 <strong>From Jamaica to History-Making General</strong>
+        <br>
+        Arriving in the U.S. from Jamaica at just 17, Lorna Mahlock’s journey in the Marines began shortly after, inspired partly by the challenge her brother declined. Her relentless drive led her from the enlisted ranks to becoming the first Black woman to be nominated to the rank of Brigadier General in 2018.
+        <br><br>
+        🎓 <strong>Education and Leadership</strong>
+        <br>
+        Maj. Gen. Mahlock is not only a Marine through and through but also an avid learner and leader. She holds a Master’s degree in Adult and Higher Education from the University of Oklahoma at Norman, a Master’s in National Security and Strategic Studies with distinction from the Naval War College, a Master’s in Strategic Studies from the United States Army War College, and a Master’s Certificate in Information Operations from the Naval Postgraduate School. She is a graduate of the United Kingdom Defense College Higher Command and Staff. Maj. Gen. Mahlock exemplifies lifelong learning. Her leadership roles are extensive, from air command and control to being an instrumental figure in education at the Marine Corps Instructional Management School.
+        <br><br>
+        💡 <strong>Empowering Change and Embracing Diversity</strong>
+        <br>
+        Throughout her service, Maj. Gen. Mahlock has witnessed the lifting of combat restrictions for women and has been a fierce advocate for diversity. “We’re just trying to figure out how to build the best fighting force,” she says, celebrating the inclusion of women across all spectrums of military service.
+        <br><br>
+        🛡️ <strong>At the Helm of Marine Corps IT and Communications</strong>
+        <br>
+        Today, she serves as the deputy director for Combat Support for the National Security Agency’s Cybersecurity Directorate. She previously led the Information, Command, Control, Communications, and Computers Division and served as the deputy commandant for information. From overseeing global IT infrastructure to championing cybersecurity, she ensures that Marines have the tools they need for success in every mission.
+        <br><br>
+        🏅 <strong>A Decorated Career</strong>
+        <br>
+        Her commendable service is marked by numerous awards, including the Legion of Merit and the Defense Meritorious Service Medal. Her career in leadership positions spans the globe, from directing air traffic control to leading troops in combat operations.
+        <br><br>
+        As we honor our veterans, let’s draw inspiration from Major General Mahlock’s unwavering commitment to excellence and her belief in the power of teamwork. Her story reminds us that, indeed, “Ordinary people can do extraordinary things.”
+        <br><br>
+        #VeteransDay #HonorWall #LornaMahlock #MarineCorps #Trailblazer #Inspiration
+    </p>
+</div>
+    <div class="honor-card">
+        <h2 class="honor-name" onclick="toggleDescription('bio3')">Medgar Evers</h2>
+        <p class="honor-date">November 8, 2023</p>
+        <p id="bio3" class="honor-description hidden">United States Army Veteran 🎖️ 2023 Veterans Day Honor Wall: Remembering Medgar Evers Today, we are called to remember the bravery and enduring spirit of Medgar Wiley Evers, a veteran whose battle did not end upon leaving the theater of war but carried on in the pursuit of justice and equality within his own nation.…</p>
+    </div>
+
+    <!-- Additional profiles go here -->
+
+    <!-- Pagination for older posts -->
+    <div class="mt-8 flex justify-center">
+        <button class="pagination-btn">Previous Page</button>
+        <button class="pagination-btn">Next Page</button>
+    </div>
+</section>
+
+<!-- MyCAA Box at the Bottom -->
+<div class="mycaa-box mx-6 mt-12 py-8 rounded-lg shadow-xl">
+    <h2 class="text-2xl font-semibold mb-6 text-center text-white">MyCAA Expands Access: Career Advancement Opportunities Now Available to More Military Spouses</h2>
+    
+    <p class="text-lg mb-4 text-center px-4 text-white">
+        As military families move across the country—and sometimes the world—career development can be challenging, especially for military spouses. The My Career Advancement Account (MyCAA) Scholarship Program is here to change that by helping military spouses overcome these challenges and work toward their career goals. And now, it’s available to even more military spouses!
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <!-- Example Post -->
+        <div class="post-box bg-red-900 bg-opacity-70 p-6 rounded-lg shadow-lg hover:bg-opacity-90 transition-all">
+            <p class="text-lg font-semibold text-white mb-2">by Nick</p>
+            <p class="text-sm text-white mb-4">October 8, 2024</p>
+            <h3 class="text-lg font-semibold text-white">2024 Annual Member Meeting</h3>
+        </div>
+<!-- Transparent White Box -->
+<div class="post-box bg-white bg-opacity-30 p-6 rounded-lg shadow-lg hover:bg-opacity-50 transition-all">
+    <p class="text-lg font-semibold text-white mb-2">by Example</p>
+    <p class="text-sm text-white mb-4">October 10, 2024</p>
+    <h3 class="text-lg font-semibold text-white">Upcoming Event</h3>
+</div>
+
+<!-- Transparent Dark Blue Box -->
+<div class="post-box bg-blue-900 bg-opacity-40 p-6 rounded-lg shadow-lg hover:bg-opacity-60 transition-all">
+    <p class="text-lg font-semibold text-white mb-2">by Sample</p>
+    <p class="text-sm text-white mb-4">October 12, 2024</p>
+    <h3 class="text-lg font-semibold text-white">Veteran's Day Celebration</h3>
+</div>
+    </div>
+</div>
+
+<script>
+    function toggleDescription(id) {
+        const element = document.getElementById(id);
+        element.classList.toggle('hidden');
+    }
+</script>
+
+</body>
+</html>
