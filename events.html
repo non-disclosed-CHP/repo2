@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMU SVA Chapter Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Basic Styles */
+        body {
+            background-image: url('flag2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.25);
+            z-index: -1;
+        }
+
+        header, footer {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 16px 0;
+            text-align: center;
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 60px 0;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+
+        .expandable-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 16px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .expandable-box.active {
+            max-height: 500px; /* Expandable max height */
+            overflow-y: auto;
+        }
+
+        .expandable-button {
+            background-color: rgba(59, 130, 246, 0.9);
+            color: white;
+            padding: 14px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            margin-top: 16px;
+        }
+
+        .expandable-button:hover {
+            background-color: rgba(59, 130, 246, 1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Links -->
+    <header>
+        <div class="container mx-auto flex justify-center space-x-4 text-sm">
+            <a href="index.html" class="hover:underline">Home</a>
+            <a href="events.html" class="hover:underline">Upcoming Events</a>
+            <a href="#contact" class="hover:underline">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Events Section with Expandable Box -->
+    <section id="events">
+        <h2 class="text-3xl font-bold text-blue-700">Upcoming AMU SVA Chapter Events</h2>
+        <p class="text-lg text-gray-600 mt-4">Stay up-to-date with the latest events, workshops, and social gatherings hosted by the AMU SVA Chapter. Check back regularly for updates!</p>
+        
+        <!-- Expandable Scroll Down Box -->
+        <div class="expandable-box mt-8">
+            <div class="p-4 space-y-8">
+                <!-- Event 1 with image placeholder -->
+                <div class="flex flex-col md:flex-row items-center">
+                    <img src="https://via.placeholder.com/150" alt="Event 1 Image" class="w-40 h-40 object-cover rounded-lg mr-6 mb-4 md:mb-0">
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold text-blue-700">Veterans Networking Night</h3>
+                        <p class="text-gray-600 mt-2">Meet fellow student veterans, build connections, and expand your professional network. Enjoy light refreshments and inspiring discussions.</p>
+                        <p class="mt-1"><strong>Date:</strong> November 15, 2024</p>
+                        <p><strong>Time:</strong> 6:00 PM – 9:00 PM EST</p>
+                    </div>
+                </div>
+
+                <!-- Event 2 with image placeholder -->
+                <div class="flex flex-col md:flex-row items-center">
+                    <img src="https://via.placeholder.com/150" alt="Event 2 Image" class="w-40 h-40 object-cover rounded-lg mr-6 mb-4 md:mb-0">
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold text-blue-700">Career Development Workshop</h3>
+                        <p class="text-gray-600 mt-2">A workshop covering resume writing, job search strategies, and interview skills tailored for veterans. Sharpen your career tools!</p>
+                        <p class="mt-1"><strong>Date:</strong> December 5, 2024</p>
+                        <p><strong>Time:</strong> 1:00 PM – 3:00 PM EST</p>
+                    </div>
+                </div>
+
+                <!-- Event 3 with image placeholder -->
+                <div class="flex flex-col md:flex-row items-center">
+                    <img src="https://via.placeholder.com/150" alt="Event 3 Image" class="w-40 h-40 object-cover rounded-lg mr-6 mb-4 md:mb-0">
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold text-blue-700">Holiday Community Service Day</h3>
+                        <p class="text-gray-600 mt-2">Join us for a day of giving back to the community. We'll be volunteering with local organizations to support families in need this holiday season.</p>
+                        <p class="mt-1"><strong>Date:</strong> December 12, 2024</p>
+                        <p><strong>Time:</strong> 9:00 AM – 2:00 PM EST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expandable Button -->
+        <button class="expandable-button" onclick="toggleExpandableBox()">Show More Events</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 American Military University Student Veterans of America. All rights reserved.</p>
+        <a href="#join" class="join-button text-white bg-blue-700 px-4 py-2 rounded-lg">Join Now</a>
+    </footer>
+
+    <script>
+        function toggleExpandableBox() {
+            const box = document.querySelector('.expandable-box');
+            const button = document.querySelector('.expandable-button');
+            box.classList.toggle('active');
+            button.textContent = box.classList.contains('active') ? 'Show Less Events' : 'Show More Events';
+        }
+    </script>
+
+</body>
+</html>

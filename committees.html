@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMU SVA Committees</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('flag2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.25);
+            z-index: -1;
+        }
+
+        header, footer {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 16px 0;
+            text-align: center;
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 40px 0;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container mx-auto flex justify-center space-x-4 text-sm">
+            <a href="index.html" class="hover:underline">Home</a>
+            <a href="honors.html" class="hover:underline">2023 Veterans Day Honor Wall Campaign</a>
+            <a href="index.html#history" class="hover:underline">SVA History</a>
+            <a href="board.html" class="hover:underline">Board Members</a>
+            <a href="news.html" class="hover:underline">News</a>
+            <a href="index.html#committees" class="hover:underline">Committees</a>
+            <a href="index.html#events" class="hover:underline">Upcoming Chapter Events</a>
+        </div>
+    </header>
+
+    <!-- Committees Section -->
+    <section id="committees">
+        <h2 class="text-3xl font-bold text-red-600">AMU SVA Committees</h2>
+        <p class="text-lg text-gray-600 mt-4">Explore the various committees within the AMU SVA Chapter and find out how each one supports our mission. Join a committee to make an impact!</p>
+        
+        <!-- Committee Boxes -->
+        <div class="container mx-auto grid gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3">
+
+            <!-- Committee 1: Events -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-blue-700">Events Committee</h3>
+                <p class="text-gray-600 mt-2">Plans, organizes, and executes events to engage our veteran community. Works on everything from networking nights to holiday gatherings.</p>
+                <p class="text-sm mt-4"><strong>Chair:</strong> John Doe</p>
+                <button class="mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Join Now</button>
+            </div>
+
+            <!-- Committee 2: Community Service -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-blue-700">Community Service Committee</h3>
+                <p class="text-gray-600 mt-2">Organizes volunteer and community service initiatives to give back and strengthen our local communities.</p>
+                <p class="text-sm mt-4"><strong>Chair:</strong> Jane Smith</p>
+                <button class="mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Join Now</button>
+            </div>
+
+            <!-- Committee 3: Career Development -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-blue-700">Career Development Committee</h3>
+                <p class="text-gray-600 mt-2">Provides career support through workshops, resume help, and networking opportunities to empower members' professional goals.</p>
+                <p class="text-sm mt-4"><strong>Chair:</strong> Michael Johnson</p>
+                <button class="mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Join Now</button>
+            </div>
+
+            <!-- Committee 4: Advocacy -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-blue-700">Advocacy Committee</h3>
+                <p class="text-gray-600 mt-2">Focuses on issues impacting veterans, advocating for better policies, resources, and support for veteran students.</p>
+                <p class="text-sm mt-4"><strong>Chair:</strong> Lisa White</p>
+                <button class="mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Join Now</button>
+            </div>
+
+            <!-- Committee 5: Social Media & Marketing -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-blue-700">Social Media & Marketing Committee</h3>
+                <p class="text-gray-600 mt-2">Handles chapter branding, promotes events, and keeps our community connected through social media and other channels.</p>
+                <p class="text-sm mt-4"><strong>Chair:</strong> Emily Brown</p>
+                <button class="mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Join Now</button>
+            </div>
+
+            <!-- Committee 6: Academic Support -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-blue-700">Academic Support Committee</h3>
+                <p class="text-gray-600 mt-2">Provides academic resources, tutoring, and study sessions to support our veterans' educational journeys.</p>
+                <p class="text-sm mt-4"><strong>Chair:</strong> Chris Green</p>
+                <button class="mt-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Join Now</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 American Military University Student Veterans of America. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
