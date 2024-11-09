@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | AMU/APU SVA Chapter</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Full page layout */
+        body {
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            flex-direction: column;
+            overflow-y: auto; /* Allow scrolling */
+        }
+
+        /* Left side with ruby red background */
+        .left-side {
+            background-color: #9B1C1C; /* Ruby Red */
+            flex: 1;
+            display: flex;
+            justify-content: flex-start; /* Align logo to the left */
+            align-items: center;
+            position: relative;
+            z-index: 1; /* Ensure the logos are on top of the left-side background */
+        }
+
+        /* Right side with navy blue background */
+        .right-side {
+            background-color: #1E3A8A; /* Dark Navy Blue */
+            flex: 1;
+            display: flex;
+            justify-content: flex-end; /* Align logo to the right */
+            align-items: center;
+            position: relative;
+            z-index: 1; /* Ensure the logos are on top of the right-side background */
+        }
+
+        /* Center Section for Contact Us form */
+        .center-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            max-width: 600px;
+            width: 100%;
+            margin-top: 60px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft shadow */
+            min-height: 400px; /* Ensure enough space for the contact form */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1)); /* Gradient background */
+        }
+
+        section {
+            padding: 40px 20px;
+            width: 100%;
+            text-align: center;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+            backdrop-filter: blur(10px); /* Soft blur effect */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        }
+
+        h2 {
+            color: #B91C1C; /* Ruby Red */
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(229, 231, 235, 0.54);
+        }
+
+        button {
+            background-color: #B91C1C; /* Ruby Red */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #9B1C1C;
+        }
+
+        /* Home button at the top-right of the page */
+        .home-button {
+            position: fixed;
+            top: 20px; /* Adjust to place it at the top */
+            right: 20px; /* Adjust to place it at the right */
+            padding: 12px 24px;
+            background-color: #B91C1C; /* Solid Ruby Red */
+            color: white; /* White text for visibility */
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 10; /* Ensure it stays above other content */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect */
+        .home-button:hover {
+            transform: scale(1.05); /* Slightly larger */
+            background-color: #9B1C1C; /* Slightly darker red */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+        }
+
+        /* Logo images */
+        .sva-img, .back-img {
+            max-width: 150px; /* Adjust size of the logos */
+            position: absolute;
+        }
+
+        .sva-img {
+            left: 240px; /* Move SVA logo 2.5 inches (240px) to the right */
+        }
+
+        .back-img {
+            right: 144px; /* Move Back logo 1.5 inches (144px) to the left */
+            opacity: 1 !important; /* Ensure no transparency effect */
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Home Button at the top-right -->
+<button class="home-button" onclick="window.location.href='index.html'">Home</button>
+
+<!-- Left Side with ruby red background -->
+<div class="left-side">
+    <img src="sva.png" alt="SVA Logo" class="sva-img">
+</div>
+
+<!-- Right Side with navy blue background -->
+<div class="right-side">
+    <img src="back.png" alt="Back Logo" class="back-img">
+</div>
+
+<!-- Center Section for Contact Us form -->
+<div class="center-section">
+    <section>
+        <h2>Contact Us</h2>
+        <p>We would love to hear from you! Please contact us with any questions, comments, or concerns.</p>
+        
+        <form id="contactForm" onsubmit="return validateForm();" action="send_email.php" method="POST">
+            <label for="name">Name (required)</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email (required)</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">SEND</button>
+        </form>
+
+        <p>Contact us by mail:</p>
+        <address>111 W. Congress Street<br>Charles Town, WV 25414</address>
+    </section>
+</div>
+
+<script>
+    // Client-side form validation
+    function validateForm() {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        if (!name || !email || !message) {
+            alert('Please complete all required fields.');
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>
