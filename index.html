@@ -164,25 +164,75 @@
     </div>
 </header>
 
-<!-- Expandable Leadership Box -->
-<div class="expandable-box" id="leadershipBox">
-    <button class="expandable-button" id="toggleButton">
-        Meet the Leadership
-    </button>
-    <div id="content" class="mt-4 space-y-2">
-        <h3 class="leader-name" onclick="toggleBio('bio1')">Leader 1</h3>
-        <p id="bio1" class="leader-bio">Leader 1 Bio: Brief description here.</p>
+<!-- Leadership Box -->
+<div class="fixed bottom-0 left-0 p-4 bg-gray-100 rounded-lg shadow-md z-50" id="leadershipBox">
+    <!-- Title & Minimize/Maximize Buttons -->
+    <div class="flex justify-between items-center w-full">
+        <!-- Minimize/Maximize Button -->
+        <button id="minimizeButton" class="text-white bg-blue-600 hover:bg-blue-700 px-2 py-1 rounded-full">
+            -
+        </button>
+        <!-- Title (changes to 'See Leadership' when minimized) -->
+        <div id="leadershipTitle" class="w-full bg-blue-600 text-white py-3 px-5 rounded-lg shadow-md text-center">
+            See Leadership
+        </div>
+    </div>
 
-        <h3 class="leader-name" onclick="toggleBio('bio2')">Leader 2</h3>
-        <p id="bio2" class="leader-bio">Leader 2 Bio: Brief description here.</p>
+    <!-- Leadership Content -->
+    <div id="content" class="mt-4 space-y-4">
+        <!-- Leader 1 -->
+        <div class="flex items-center">
+            <img src="pic.tommy.png" alt="Leader 1" class="w-16 h-16 rounded-full mr-4">
+            <div>
+                <h3 class="text-lg font-bold text-blue-800">Tommy</h3>
+                <p class="text-sm text-gray-600">
+                    Tommy is a dedicated leader with extensive experience in veteran affairs.
+                </p>
+            </div>
+        </div>
 
-        <h3 class="leader-name" onclick="toggleBio('bio3')">Leader 3</h3>
-        <p id="bio3" class="leader-bio">Leader 3 Bio: Brief description here.</p>
+        <!-- Leader 2 -->
+        <div class="flex items-center">
+            <img src="pic.nick.png" alt="Leader 2" class="w-16 h-16 rounded-full mr-4">
+            <div>
+                <h3 class="text-lg font-bold text-blue-800">Nick</h3>
+                <p class="text-sm text-gray-600">
+                    Nick specializes in operations and is committed to supporting student veterans.
+                </p>
+            </div>
+        </div>
 
-        <h3 class="leader-name" onclick="toggleBio('bio4')">Leader 4</h3>
-        <p id="bio4" class="leader-bio">Leader 4 Bio: Brief description here.</p>
+        <!-- Link to Board Page -->
+        <div class="text-center mt-4">
+            <a href="board.html" class="text-blue-600 underline hover:text-blue-800">
+                Meet the Rest of the Leadership!
+            </a>
+        </div>
     </div>
 </div>
+
+<script>
+    const minimizeButton = document.getElementById('minimizeButton');
+    const content = document.getElementById('content');
+    const leadershipBox = document.getElementById('leadershipBox');
+    const leadershipTitle = document.getElementById('leadershipTitle');
+
+    minimizeButton.addEventListener('click', () => {
+        // Toggle content visibility
+        content.classList.toggle('hidden');
+
+        // Toggle the button and title text
+        if (content.classList.contains('hidden')) {
+            minimizeButton.textContent = '+';  // Show "+" when minimized
+            leadershipTitle.textContent = 'See Leadership';  // Change title to 'See Leadership'
+            leadershipBox.classList.add('h-16');  // Make box small
+        } else {
+            minimizeButton.textContent = '-';  // Show "-" when expanded
+            leadershipTitle.textContent = 'Meet the Leadership';  // Title when expanded
+            leadershipBox.classList.remove('h-16');  // Expand box
+        }
+    });
+</script>
 
 <!-- Welcome Section -->
 <section class="bg-blue-700 bg-opacity-70 text-white">
