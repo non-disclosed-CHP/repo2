@@ -49,101 +49,296 @@
 
 /* Section Styling */
 section {
-    background: url('flag2.png') no-repeat center top; /* Flag image, no repeat, centered at the top */
-    background-size: cover; /* Ensure the image covers the area */
+    position: relative; /* Enables layering of the pseudo-element */
+    background: url('eagle.png') no-repeat center top; /* Background image */
+    background-size: 60%; /* Makes the image 40% smaller (100% - 40%) */
     color: white;
     padding: 60px 0;
     text-align: center;
     margin: 60px 0;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background-attachment: fixed; /* Flag stays fixed as user scrolls */
+    background-attachment: fixed; /* Image stays fixed as user scrolls */
+    overflow: hidden; /* Ensures pseudo-element doesn't overflow */
+    animation: pulse 5.25s infinite; /* Slower (75% longer duration) and dramatic animation */
 }
 
-        section h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-        }
+/* Pulsating effect for the background */
+@keyframes pulse {
+    0%, 100% {
+        background-size: 60%; /* Default size (40% smaller) */
+    }
+    50% {
+        background-size: 75%; /* Dramatically larger pulse at midpoint */
+    }
+}
 
-        section p {
-            font-size: 1.25rem;
-        }
+/* Remove white areas outside the image */
+section::before {
+    content: ""; /* Creates an empty pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none; /* No overlay to ensure transparency */
+    z-index: 1; /* Ensures it doesn't obstruct other elements */
+}
 
-        /* Button Styling */
-        .expand-btn {
-            background-color: #475569; /* Darker navy */
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 30px;
-            font-size: 1.125rem;
-            transition: background-color 0.3s ease;
-        }
+section > * {
+    position: relative; /* Ensures content is above the background */
+    z-index: 2;
+}
 
-        .expand-btn:hover {
-            background-color: #334155; /* Even darker navy on hover */
-        }
+section h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
 
-        /* Pagination buttons */
-        .pagination-btn {
-            background-color: #64748b; /* Professional gray for pagination */
-            color: #f1f5f9; /* Light text for buttons */
-            padding: 10px 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            margin: 0 10px;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-        }
+section p {
+    font-size: 1.25rem;
+}
 
-        .pagination-btn:hover {
-            background-color: #475569;
-            color: white;
-        }
+/* Button Styling */
+.expand-btn {
+    background-color: #0052A5; /* Blue button */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 1.125rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        /* MyCAA Box Styling */
-        .mycaa-box {
-            background-color: #334155; /* Darker gray background */
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            margin-top: 50px;
-        }
+.expand-btn:hover {
+    background-color: #003366; /* Darker blue on hover */
+    transform: translateY(-3px); /* Adds slight hover lift */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-        .mycaa-box h2 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #e5e7eb;
-            margin-bottom: 10px;
-        }
+/* Pagination buttons */
+.pagination-btn {
+    background-color: #B22234; /* Red button */
+    color: #f1f5f9; /* Light text for buttons */
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .mycaa-box p {
-            font-size: 1rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
+.pagination-btn:hover {
+    background-color: #8B0000; /* Dark red on hover */
+    color: white;
+    transform: translateY(-3px); /* Adds slight hover lift */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-        .mycaa-box .date {
-            font-size: 0.875rem;
-            color: #94a3b8;
-            margin-top: 10px;
-        }
-    </style>
+/* MyCAA Box Styling */
+.mycaa-box {
+    background-color: #334155; /* Darker gray background */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+}
+
+.mycaa-box h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* White text for MyCAA header */
+    margin-bottom: 10px;
+}
+
+.mycaa-box p {
+    font-size: 1rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.mycaa-box .date {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    margin-top: 10px;
+}
+
+.mycaa-box .date {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    margin-top: 10px;
+}
+<style>
+/* General Link Styling */
+a {
+    color: white; /* Sets link text color to white */
+    text-decoration: none; /* Removes underline by default */
+}
+
+a:hover {
+    color: #cbd5e1; /* Optional: light gray color on hover */
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+/* Navigation Bar Styling */
+nav {
+    background-color: #1f2937; /* Dark gray background */
+    padding: 1rem; /* Spacing inside the nav */
+}
+
+nav a {
+    color: white; /* Ensures all navigation links are white */
+    margin-right: 1rem; /* Adds spacing between links */
+    font-size: 1.125rem; /* Slightly larger text */
+    transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+nav a:hover {
+    color: #cbd5e1; /* Light gray color when hovered */
+}
+
+/* Section Styling */
+section {
+    position: relative; /* Enables layering of the pseudo-element */
+    background: url('eagle.png') no-repeat center top; /* Background image */
+    background-size: 60%; /* Makes the image 40% smaller (100% - 40%) */
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    margin: 60px 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-attachment: fixed; /* Image stays fixed as user scrolls */
+    overflow: hidden; /* Ensures pseudo-element doesn't overflow */
+    animation: pulse 5.25s infinite; /* Slower (75% longer duration) and dramatic animation */
+}
+
+/* Pulsating effect for the background */
+@keyframes pulse {
+    0%, 100% {
+        background-size: 60%; /* Default size (40% smaller) */
+    }
+    50% {
+        background-size: 75%; /* Dramatically larger pulse at midpoint */
+    }
+}
+
+/* Remove white areas outside the image */
+section::before {
+    content: ""; /* Creates an empty pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none; /* No overlay to ensure transparency */
+    z-index: 1; /* Ensures it doesn't obstruct other elements */
+}
+
+section > * {
+    position: relative; /* Ensures content is above the background */
+    z-index: 2;
+}
+
+section h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+section p {
+    font-size: 1.25rem;
+}
+
+/* Button Styling */
+.expand-btn {
+    background-color: #0052A5; /* Blue button */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 1.125rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expand-btn:hover {
+    background-color: #003366; /* Darker blue on hover */
+    transform: translateY(-3px); /* Adds slight hover lift */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Pagination buttons */
+.pagination-btn {
+    background-color: #B22234; /* Red button */
+    color: #f1f5f9; /* Light text for buttons */
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background-color: #8B0000; /* Dark red on hover */
+    color: white;
+    transform: translateY(-3px); /* Adds slight hover lift */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* MyCAA Box Styling */
+.mycaa-box {
+    background-color: #334155; /* Darker gray background */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+}
+
+.mycaa-box h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* White text for MyCAA header */
+    margin-bottom: 10px;
+}
+
+.mycaa-box p {
+    font-size: 1rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.mycaa-box .date {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    margin-top: 10px;
+}
+</style>
 </head>
 <body class="bg-gray-900">
-    <!-- Navigation Links -->
-    <nav class="bg-gray-800 p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-white text-xl hover:text-gray-400">Homepage</a>
-            <a href="honors.html" class="text-white text-xl hover:text-gray-400">Honors Section</a>
-        </div>
-    </nav>
-
+<nav class="bg-gray-800 p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="index.html">Homepage</a>
+        <a href="honors.html">Honors Section</a>
+        <a href="honors.html">2023 Veterans Day Honor Wall Campaign</a>
+        <a href="news.html">News</a>
+        <a href="events.html">Upcoming Chapter Events</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="committees.html">Committees</a>
+        <a href="careers.html">Careers</a>
+        <a href="board.html">Board Members</a>
+        <a href="history.html">History</a>
+    </div>
+</nav>
 
     <!-- Honor Wall Section -->
 <section class="px-6 py-16 max-w-7xl mx-auto">
