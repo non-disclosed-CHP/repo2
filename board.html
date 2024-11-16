@@ -24,14 +24,13 @@
             z-index: 10;
         }
 
-        /* Header with dark ruby red, white, and navy blue gradient */
-        header {
-            background: linear-gradient(to right, #B91C1C, white, #1E3A8A);
-            color: white;
-            padding: 24px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+            header {
+                background: linear-gradient(to right, #7F1D1D, #374151, #1E2A47); /* Darker colors */
+                color: white;
+                padding: 24px 0;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
 
         header h1 {
             font-size: 2.5rem;
@@ -113,68 +112,66 @@
         </div>
     </header>
 
-    <!-- Board Members Section -->
-    <main class="container mx-auto py-12 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Board Members Section -->
+<main class="container mx-auto py-12 px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Nick Rinell -->
-            <div class="board-member">
-                <h2>NICK RINELL</h2>
-                <p class="title">President</p>
-                <p class="email">nicholas.rinell@gmail.com</p>
-                <p>Nick enlisted in the Marine Corps in September 2003 as an Air Traffic Control Maintenance Radar Technician. Since his enlistment, he has spent eight years in Okinawa, Japan, and 13 months in Al-Taqqadum, Iraq...</p>
-            </div>
-
-            <!-- Tommy Hendler -->
-            <div class="board-member">
-                <h2>TOMMY HENDLER</h2>
-                <p class="title">Vice President</p>
-                <p class="email">Thomas.hendler@mycampus.apus.edu</p>
-                <p>Tommy graduated with an MBA with a Marketing Concentration from American Military University in February 2023 and has since started a bachelor’s certificate in Enterprise Web Applications...</p>
-            </div>
-
-            <!-- Nathaniel Ronczyk -->
-            <div class="board-member">
-                <h2>NATHANIEL RONCZYK</h2>
-                <p class="title">Secretary</p>
-                <p class="email">nathaniel.ronczyk@mycampus.apus.edu</p>
-                <p>Nathaniel was born in Miami, Florida, raised in Southern California, and now resides in Tampa, Florida. His dedication to service and leadership began when he joined the US Army at the age of 18...</p>
-            </div>
-
-            <!-- Loren-Li Moore -->
-            <div class="board-member">
-                <h2>LOREN-LI MOORE</h2>
-                <p class="title">Chief Information Officer</p>
-                <p class="email">lorenli.moore@mycampus.apus.edu</p>
-                <p>Loren-Li Moore is a native of Southwest Florida and served as an Active Duty Army medic until her retirement in 2018. She is currently a full-time student at AMU working towards a Bachelors degree in Management...</p>
-            </div>
-
-            <!-- Anthony Biondo -->
-            <div class="board-member">
-                <h2>ANTHONY BIONDO</h2>
-                <p class="title">Chief Financial Officer</p>
-                <p class="email">anthony.biondo@mycampus.apus.edu</p>
-                <p>Anthony Biondo is an active-duty Senior Chief in the Navy serving as the Utilities and Energy Manager for Naval Support Facilities Thurmont, MD. He is responsible for energy security analysis, project development...</p>
-            </div>
-
-            <!-- Wayne Browne -->
-            <div class="board-member">
-                <h2>WAYNE BROWNE</h2>
-                <p class="title">Political Advocate</p>
-                <p class="email">wayne.browne27@gmail.com</p>
-                <p>Wayne is an accomplished leader and seasoned organizer with over 28 years of distinguished military leadership complemented by nearly 10 years in the national security sector. Residing in the Washington DC/Virginia region...</p>
-            </div>
-
-            <!-- Dan Allen -->
-            <div class="board-member">
-                <h2>DAN ALLEN</h2>
-                <p class="title">Chapter Advisor</p>
-                <p class="email">dallen@apus.edu</p>
-                <p>Dan joined American Public University System in 2010. He served 24 years in the Air Force as an Inventory Management Specialist, a Military Training Manager, and his final role as the Superintendent of the Logistics Readiness Squadron...</p>
-            </div>
-
+        <!-- Nick Rinell -->
+        <div class="board-member bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+            <img src="pic.nick.png" alt="Nick Rinell" class="w-16 h-16 rounded-full mx-auto mb-4">
+            <h2 class="text-xl font-bold text-center">Nick Rinell</h2>
+            <p class="title text-center text-blue-600">President</p>
+            <p class="email text-center text-gray-600">apussva@gmail.com</p>
+            <p class="text-sm text-gray-700 mt-4">Nick enlisted in the Marine Corps in September 2003 as an Air Traffic Control Maintenance Radar Technician. Since his enlistment, he has spent eight years in Okinawa, Japan, and 13 months in Al-Taqqadum, Iraq...</p>
         </div>
-    </main>
+
+        <!-- Tommy Hendler -->
+        <div class="board-member bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+            <img src="pic.tommy.png" alt="Tommy Hendler" class="w-16 h-16 rounded-full mx-auto mb-4">
+            <h2 class="text-xl font-bold text-center">Tommy Hendler</h2>
+            <p class="title text-center text-blue-600">Vice President</p>
+            <p class="email text-center text-gray-600">apussva@gmail.com</p>
+            <p class="text-sm text-gray-700 mt-4">Tommy graduated with an MBA with a Marketing Concentration from American Military University in February 2023 and has since started a bachelor’s certificate in Enterprise Web Applications...</p>
+        </div>
+
+        <!-- Anthony Biondo -->
+        <div class="board-member bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+            <img src="pic.anthony.png" alt="Anthony Biondo" class="w-16 h-16 rounded-full mx-auto mb-4">
+            <h2 class="text-xl font-bold text-center">Anthony Biondo</h2>
+            <p class="title text-center text-blue-600">Chief Financial Officer</p>
+            <p class="email text-center text-gray-600">apussva@gmail.com</p>
+            <p class="text-sm text-gray-700 mt-4">Anthony Biondo is an active-duty Senior Chief in the Navy serving as the Utilities and Energy Manager for Naval Support Facilities Thurmont, MD. He is responsible for energy security analysis, project development...</p>
+        </div>
+
+        <!-- Loren-Li Moore -->
+        <div class="board-member bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+            <img src="pic.loren-li-moore.png" alt="Loren-Li Moore" class="w-16 h-16 rounded-full mx-auto mb-4">
+            <h2 class="text-xl font-bold text-center">Loren-Li Moore</h2>
+            <p class="title text-center text-blue-600">Chief Information Officer</p>
+            <p class="email text-center text-gray-600">apussva@gmail.com</p>
+            <p class="text-sm text-gray-700 mt-4">Loren-Li Moore is a native of Southwest Florida and served as an Active Duty Army medic until her retirement in 2018. She is currently a full-time student at AMU working towards a Bachelors degree in Management...</p>
+        </div>
+
+        <!-- Wayne Browne -->
+        <div class="board-member bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+            <img src="back.png" alt="Wayne Browne" class="w-16 h-16 rounded-full mx-auto mb-4">
+            <h2 class="text-xl font-bold text-center">Wayne Browne</h2>
+            <p class="title text-center text-blue-600">Political Advocate</p>
+            <p class="email text-center text-gray-600">apussva@gmail.com</p>
+            <p class="text-sm text-gray-700 mt-4">Wayne is an accomplished leader and seasoned organizer with over 28 years of distinguished military leadership complemented by nearly 10 years in the national security sector...</p>
+        </div>
+
+        <!-- Dan Allen -->
+        <div class="board-member bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+            <img src="pic.dan.png" alt="Dan Allen" class="w-16 h-16 rounded-full mx-auto mb-4">
+            <h2 class="text-xl font-bold text-center">Dan Allen</h2>
+            <p class="title text-center text-blue-600">Chapter Advisor</p>
+            <p class="email text-center text-gray-600">apussva@gmail.com</p>
+            <p class="text-sm text-gray-700 mt-4">Dan joined American Public University System in 2010. He served 24 years in the Air Force as an Inventory Management Specialist, a Military Training Manager, and his final role as the Superintendent of the Logistics Readiness Squadron...</p>
+        </div>
+
+    </div>
+</main>
 
     <!-- Floating Logo -->
     <div class="floating-logo">
