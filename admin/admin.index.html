@@ -5,8 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Manager</title>
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #3b82f6, #ef4444);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .instructions {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        .cms-container {
+            width: 100%;
+            height: 500px; /* Default height for Netlify CMS */
+        }
+    </style>
 </head>
 <body>
-    <!-- Netlify CMS will auto-render here -->
+    <div class="container">
+        <h1 class="title">Welcome to the Content Manager</h1>
+        <p class="instructions">Use this interface to manage your blog posts and other content.</p>
+        <div class="cms-container">
+            <!-- Netlify CMS will auto-render here -->
+        </div>
+    </div>
 </body>
 </html>
