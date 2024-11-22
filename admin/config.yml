@@ -1,17 +1,16 @@
 backend:
   name: git-gateway
-  branch: main  # Use the branch you are working with (usually 'main')
-  repo: non-disclosed-CHP/repo2  # Your GitHub username and repo name
-
-media_folder: "static/uploads"  # Where media files will be stored
-public_folder: "/uploads"  # The folder path for public media
+  repo: non-disclosed-CHP/repo2  # Use your actual GitHub username and repo name
+  branch: main  # or your default branch
+media_folder: "static/uploads"
+public_folder: "/uploads"
 
 collections:
   - name: "blog"
     label: "Blog Posts"
-    folder: "content/blog"  # Folder where your blog content is stored
-    create: true  # Allow creating new posts
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # Post slug format
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }  # Allows markdown for the body of blog posts
+      - { label: "Body", name: "body", widget: "markdown" }
