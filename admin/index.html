@@ -54,9 +54,7 @@
         <p class="instructions">Manage your blog posts and other content with ease. Please log in to start managing your content.</p>
         
         <!-- Netlify CMS will auto-render here -->
-        <div class="cms-container">
-            <!-- Netlify CMS will auto-render here -->
-        </div>
+        <div class="cms-container" id="cms"></div>
     </div>
 
     <!-- Footer -->
@@ -75,6 +73,13 @@
                     window.netlifyIdentity.open();
                 }
             });
+        }
+
+        // Open the login widget on page load if no user is logged in
+        window.onload = function() {
+            if (!window.netlifyIdentity.currentUser()) {
+                window.netlifyIdentity.open();
+            }
         }
     </script>
 </body>
