@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Manager</title>
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <!-- Netlify CMS will render here -->
+    <div id="cms">
+        <h1>Welcome to the Content Manager</h1>
+        <p>Manage your blog posts and other content with ease.</p>
+    </div>
+
+    <!-- Include Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
+        // Initialize Netlify Identity
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on('init', function (user) {
                 if (!user) {
-                    window.netlifyIdentity.open();  // Open the login widget if no user is logged in
+                    // If the user is not logged in, open the login widget
+                    window.netlifyIdentity.open();
                 }
             });
         }
