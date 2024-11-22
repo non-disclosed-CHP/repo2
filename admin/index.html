@@ -12,37 +12,21 @@
         <h1>Welcome to the Content Manager</h1>
         <p>Manage your blog posts and other content with ease. Please log in to start managing your content.</p>
         
-        <!-- This is where CMS will auto-render once user logs in -->
+        <!-- Netlify CMS will auto-render here -->
         <div id="cms"></div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
     </div>
 
     <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-        // Initialize Netlify Identity
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on('init', function (user) {
                 if (!user) {
-                    // If user is not logged in, open the login widget
                     window.netlifyIdentity.open();
                 } else {
-                    // If user is logged in, initialize CMS
-                    try {
-                        window.CMS.init();
-                    } catch (error) {
-                        console.error('CMS initialization failed:', error);
-                        debugger; // This will trigger the debugger in the browser
-                    }
+                    window.CMS.init(); // Initialize Netlify CMS
                 }
             });
-        } else {
-            console.error('Netlify Identity widget not loaded.');
-            debugger; // Trigger debugger if Identity widget doesn't load
         }
     </script>
 </body>
