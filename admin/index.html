@@ -67,15 +67,17 @@
     <!-- Include Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-        // Initialize Netlify Identity
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on('init', function (user) {
-                if (!user) {
-                    // If the user is not logged in, open the login widget
-                    window.netlifyIdentity.open();
-                }
-            });
-        }
-    </script>
+    // Initialize Netlify CMS once the Identity widget is set up
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function (user) {
+            if (!user) {
+                window.netlifyIdentity.open();
+            } else {
+                // Initialize Netlify CMS only when the user is logged in
+                window.CMS.init();
+            }
+        });
+    }
+</script>
 </body>
 </html>
