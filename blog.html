@@ -5,90 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-        /* Fixed Background Image (sva.png) in Bottom-Right */
-        .scroll-bg {
-            background-image: url('sva.png');
-            background-position: bottom right;
-            background-size: 150px; /* Adjust size of image */
-            background-repeat: no-repeat;
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            z-index: 10; /* Make sure it's above other content */
-            opacity: 0.2; /* 20% transparent */
-            pointer-events: none; /* Disable interaction with the image */
-        }
-
-        /* US Flag-Inspired Background Animation (Optional) */
-        @keyframes wave {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
-        }
-
-        .bg-animated {
-            background: linear-gradient(45deg, #3b82f6, #ef4444);
-            animation: wave 10s infinite linear;
-        }
-
-        /* General Body Styling */
-        body {
-            font-family: 'Sans-serif';
-            background: #fff;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        .content-wrapper {
-            min-height: 100vh;
-            padding: 0 2rem;
-        }
-
-    </style>
 </head>
-<body class="bg-animated">
-    <!-- Scrollable Background Image (Fixed Position) -->
-    <div class="scroll-bg"></div>
-
-    <!-- Navbar -->
-    <nav class="p-4 bg-blue-700 text-white">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold">Your Company Blog</h1>
-            <div class="space-x-4">
-                <a href="index.html" class="text-lg hover:text-gray-300">Home</a>
-                <a href="contact.html" class="text-lg hover:text-gray-300">Contact</a>
-            </div>
+<body class="bg-gray-100">
+    <nav class="bg-blue-700 text-white p-4">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-xl font-bold">Blog Feed</h1>
+            <a href="admin/index.html" class="text-lg underline">Admin Login</a>
         </div>
     </nav>
-
-    <!-- Main Content (Blog Posts Section) -->
-    <main class="content-wrapper">
-        <div class="max-w-3xl mx-auto text-center text-black py-16">
-
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Welcome to Our Blog</h2>
-            <p class="text-lg mb-8">Stay up-to-date with the latest posts and news from our team!</p>
-
-            <!-- Latest Blog Post -->
-            <div class="bg-white text-black rounded-lg shadow-lg p-8 mb-8 transition-transform transform hover:scale-105 hover:shadow-2xl">
-                <h3 class="text-2xl font-semibold mb-4">Latest Blog Post</h3>
-                <p class="text-base mb-4">This is a brief preview of the latest blog post. We’ll cover exciting new topics and updates.<a href="admin/blog_post.html" class="text-blue-600 hover:underline"> Read More...</a></p>
-            </div>
-
-            <!-- Additional Blog Post -->
-            <div class="bg-white text-black rounded-lg shadow-lg p-8 mb-8 transition-transform transform hover:scale-105 hover:shadow-2xl">
-                <h3 class="text-2xl font-semibold mb-4">Second Blog Post</h3>
-                <p class="text-base mb-4">This is another preview of a blog post. We’ll cover more exciting topics soon! <a href="admin/blog_post.html" class="text-blue-600 hover:underline">Read More...</a></p>
-            </div>
-
+    <main class="container mx-auto py-10">
+        <div id="blog-posts" class="space-y-8">
+            <!-- Blog posts will be injected here -->
         </div>
     </main>
-
-    <!-- Footer -->
     <footer class="bg-blue-700 text-white py-4 text-center">
-        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+        <p>&copy; 2024 Your Company</p>
     </footer>
+    <script>
+        // Fetch blog posts dynamically
+        fetch('/blog')
+            .then(response => response.json())
+            .then(posts => {
+                const postsContainer = document.getElementById('blog-posts');
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('bg-white', 'shadow', 'rounded', 'p-6');
+                    postElement.innerHTML = `
+                        <h2 class="text-2xl font-bold mb-2">${post.title}</h2>
+                        <p class="text-sm text-gray-500 mb-4">${new Date(post.date).toLocaleDateString()}</p>
+                        <p>${post.body}</p>
+                    `;
+                    postsContainer.appendChild(postElement);
+                });
+            });
+    </script>
 </body>
 </html>
