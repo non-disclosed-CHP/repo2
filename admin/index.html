@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Manager</title>
-    
+
     <!-- Netlify CMS Script -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <!-- Netlify CMS will render here -->
-    <div id="cms">
-        <h1>Welcome to the Content Manager</h1>
-        <p>Manage your blog posts and other content with ease.</p>
-    </div>
+    <!-- Netlify CMS Interface (This is where the CMS UI will render) -->
+    <div id="cms"></div>
 
     <!-- Include Netlify Identity Widget for login -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -23,14 +20,14 @@
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on('init', function (user) {
                 if (!user) {
-                    // If the user is not logged in, open the login widget
+                    // Open login widget if no user is logged in
                     window.netlifyIdentity.open();
+                } else {
+                    // If the user is logged in, initialize the CMS
+                    CMS.init();
                 }
             });
         }
-
-        // Initialize CMS (this step renders the Netlify CMS interface inside the 'cms' div)
-        CMS.init();
     </script>
 </body>
 </html>
