@@ -3,31 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Blog</title>
+    <title>Blog</title>
 </head>
 <body>
-    <h1>William's Substack Posts</h1>
+    <h1>Our Blog</h1>
     <p>Stay updated with our latest posts:</p>
     
-    <ul id="blog-posts"></ul>
-
-    <script>
-        // Fetch the RSS feed of your Substack blog
-        fetch('https://amusva.substack.com/feed')
-            .then(response => response.text())
-            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-            .then(data => {
-                const items = data.querySelectorAll('item');
-                const postsList = document.getElementById('blog-posts');
-                
-                items.forEach(el => {
-                    const title = el.querySelector('title').textContent;
-                    const link = el.querySelector('link').textContent;
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `<a href="${link}" target="_blank">${title}</a>`;
-                    postsList.appendChild(listItem);
-                });
-            });
-    </script>
+    <!-- Substack Embed -->
+    <iframe src="https://amusva.substack.com/embed" 
+            width="100%" 
+            height="600" 
+            style="border:none; background:white;" 
+            frameborder="0" 
+            scrolling="no">
+    </iframe>
 </body>
 </html>
