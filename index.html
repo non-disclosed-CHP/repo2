@@ -173,7 +173,7 @@
     <div class="flex justify-between items-center w-full">
         <!-- Minimize/Maximize Button -->
         <button id="minimizeButton" class="text-white bg-blue-600 hover:bg-blue-700 px-2 py-1 rounded-full">
-            -
+            +
         </button>
         <!-- Title (changes to 'See Leadership' when minimized) -->
         <div id="leadershipTitle" class="w-full bg-blue-600 text-white py-3 px-5 rounded-lg shadow-md text-center">
@@ -181,8 +181,8 @@
         </div>
     </div>
 
-    <!-- Leadership Content -->
-    <div id="content" class="mt-4 space-y-4">
+    <!-- Leadership Content (Initially hidden) -->
+    <div id="content" class="mt-4 space-y-4 hidden">
         <!-- Leader 1 -->
         <div class="flex items-center">
             <img src="pic.tommy.png" alt="Leader 1" class="w-16 h-16 rounded-full mr-4">
@@ -220,6 +220,9 @@
     const leadershipBox = document.getElementById('leadershipBox');
     const leadershipTitle = document.getElementById('leadershipTitle');
 
+    // Set initial state to minimized (Content hidden)
+    content.classList.add('hidden');  // Ensure content is hidden initially
+
     minimizeButton.addEventListener('click', () => {
         // Toggle content visibility
         content.classList.toggle('hidden');
@@ -228,11 +231,9 @@
         if (content.classList.contains('hidden')) {
             minimizeButton.textContent = '+';  // Show "+" when minimized
             leadershipTitle.textContent = 'See Leadership';  // Change title to 'See Leadership'
-            leadershipBox.classList.add('h-16');  // Make box small
         } else {
             minimizeButton.textContent = '-';  // Show "-" when expanded
             leadershipTitle.textContent = 'Meet the Leadership';  // Title when expanded
-            leadershipBox.classList.remove('h-16');  // Expand box
         }
     });
 </script>
