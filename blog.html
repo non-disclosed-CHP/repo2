@@ -9,10 +9,11 @@
     <h1>Our Blog</h1>
     <p>Stay updated with our latest posts:</p>
     
-    <!-- Custom Blog Post List from Substack RSS Feed -->
+    <!-- List of Blog Posts -->
     <ul id="blog-posts"></ul>
 
     <script>
+        // Fetch the RSS feed of your Substack blog
         fetch('https://amusva.substack.com/feed')
             .then(response => response.text())
             .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
