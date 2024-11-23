@@ -1,17 +1,1 @@
-backend:
-  name: github
-  repo: non-disclosed-CHP/repo2  # Ensure this matches your GitHub repo name
-
-media_folder: "static/uploads"  # Where media files are stored
-public_folder: "/uploads"  # Public path to the media
-
-collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "date", label: "Date", widget: "datetime" }
-      - { name: "body", label: "Body", widget: "markdown" }
+##
