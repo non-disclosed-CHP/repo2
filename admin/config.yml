@@ -1,16 +1,1 @@
-backend:
-  name: git-gateway
-  repo: non-disclosed-CHP/repo2  # Use your actual GitHub username and repo name
-  branch: main  # or your default branch
-media_folder: "static/uploads"
-public_folder: "/uploads"
-
-collections:
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "content/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+##
