@@ -159,8 +159,8 @@ body {
 </head>
 <body>
 
-<header>
-    <div class="container mx-auto flex justify-center space-x-4 text-sm">
+<header class="sticky top-0 bg-white z-50 shadow-md">
+    <div class="container mx-auto flex justify-center space-x-4 text-sm py-2">
         <a href="honors.html" class="hover:underline">2023 Veterans Day Honor Wall Campaign</a>
         <a href="news.html" class="hover:underline">News</a>
         <a href="events.html" class="hover:underline">Upcoming Chapter Events</a>
@@ -246,30 +246,34 @@ body {
     });
 </script>
 
-
 <!-- Welcome Section -->
-<section class="relative py-12 px-6" style="background-image: url('wflag.png'); background-size: cover; background-position: center; filter: brightness(1.3) contrast(1.2);">
-    <!-- Content (Justified Center) -->
-    <div class="relative z-10 max-w-3xl mx-auto text-center">
-        <h1 class="text-3xl font-extrabold text-white leading-tight drop-shadow-lg">
+<section class="relative py-12 px-6 bg-cover bg-center" 
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('wflag.png'); filter: brightness(1.2) contrast(1.2);">
+    <!-- Add a transparent overlay on top of the background -->
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+    
+    <!-- Dress Image Justified Left and Same Height as Banner -->
+    <img src="dress.png" alt="Dress Image" 
+        class="absolute top-0 left-0 h-full w-auto max-w-[15%] object-contain">
+
+    <!-- Content (Centered Text) -->
+    <div class="relative z-10 max-w-2xl mx-auto text-center px-6 sm:px-8 transform translate-x-[10%]">
+        <!-- Smaller Header with a Professional Font -->
+        <h1 class="text-lg md:text-xl lg:text-2xl font-bold text-white leading-snug drop-shadow-lg font-inter">
             Welcome to AMU Student Veterans of America
         </h1>
-        <p class="mt-6 text-lg text-white leading-relaxed">
+        <!-- Smaller Text with a Professional Font -->
+        <p class="mt-4 text-xs md:text-sm lg:text-base text-white leading-relaxed font-inter">
             Empowering Veterans through Community, Resources, and Support. At AMU SVA, we believe in the power of community and the strength that comes from helping each other. As student veterans, we understand the unique challenges that come with balancing academics, transitioning from military life, and building a career.
         </p>
     </div>
-
-    <!-- Image (Justified Left, 3x Larger) -->
-    <img src="dress.png" alt="Dress Image" class="absolute top-0 left-0 mt-4 ml-4 w-96 h-auto">
 </section>
 
 <!-- About Section -->
 <section class="relative py-12 px-6 flex justify-between items-center" style="background-color: white;">
-    <!-- Content Box with Flag Background -->
-    <div class="relative z-10 max-w-3xl p-8 mx-auto rounded-lg shadow-lg bg-white overflow-auto"
-        style="background-image: url('flag6.png'); background-size: cover; background-position: center; height: 400px; position: relative;">
-        <!-- Semi-transparent overlay -->
-        <div class="absolute inset-0 bg-black opacity-40 z-0"></div>
+    <!-- Content Box with Dark Professional Ruby Red Background -->
+    <div class="relative z-10 max-w-3xl p-8 mx-auto rounded-lg shadow-lg overflow-auto"
+        style="background: hsla(0, 76%, 39%, 0.775); height: 400px;">
 
         <!-- Tommy Image - Centered at the top inside the box -->
         <img src="pic.tommy.png" alt="Tommy Image" class="absolute top-0 left-1/2 transform -translate-x-1/2 mt-4 z-10 w-32 h-32 object-cover rounded-full">
@@ -283,58 +287,60 @@ body {
     </div>
 </section>
 
-<!-- Mission Section -->
-<section class="relative py-12 px-6" style="background-color: white;">
-    <!-- Content Box with Flag Background -->
-    <div class="relative z-10 mx-auto max-w-3xl p-8 rounded-lg shadow-lg bg-white overflow-auto"
-        style="background-image: url('flag6.png'); background-size: cover; background-position: center; height: 400px; position: relative;">
-        <!-- Semi-transparent overlay -->
-        <div class="absolute inset-0 bg-black opacity-40 z-0"></div>
+<!-- About Section -->
+<section class="relative py-12 px-6 flex justify-between items-center" style="background-color: white;">
+    <!-- Content Box with Professional Gray Background -->
+    <div class="relative z-10 max-w-3xl p-8 mx-auto rounded-lg shadow-lg overflow-auto"
+        style="background-color: #128e26; height: 400px;">
 
-        <!-- SVA Lead Image - Centered at the top inside the box -->
-        <div class="relative z-10 flex justify-center mt-4">
-            <img src="svalead.png" alt="SVA Lead Image" class="w-32 h-32 object-cover rounded-full">
-        </div>
+        <!-- Tommy Image - Centered at the top inside the box -->
+        <img src="student.png" alt="Tommy Image" class="absolute top-0 left-1/2 transform -translate-x-1/2 mt-4 z-10 w-32 h-32 object-cover rounded-full">
 
-        <h2 class="relative z-10 text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 leading-tight drop-shadow-lg">
-            Who We Are
+        <h2 class="relative z-10 text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600 leading-tight drop-shadow-lg">
+            AMU Student Veterans of America Chapter
         </h2>
         <p class="relative z-10 mt-6 text-lg text-white leading-relaxed">
-            Our leadership team, composed of veterans and advocates, is dedicated to guiding members through their academic and professional paths. We are committed to fostering a community of support, advocacy, and empowerment for all student veterans at AMU/APU. We provide mentorship, resources for academic success, and networking opportunities with professionals in various industries. Additionally, we actively work to ensure that the voices of student veterans are heard within the university administration and beyond. Whether it’s advocating for mental health services, hosting career development workshops, or providing guidance on utilizing benefits, our team is here to make sure you’re equipped with everything you need to succeed. We prioritize the welfare of our members, from academic tutoring and peer counseling to connecting veterans with employment opportunities and tailored career support programs. Through consistent outreach and feedback, our mission is to continually improve our services to meet the evolving needs of the veteran community, building a legacy of support and success at AMU.
+            A supportive, student-led, family-centered community bridging the gap between service and academic success. Our chapter connects military veterans with valuable resources and networks to help them succeed in their educational and professional endeavors. Whether you’re navigating the GI Bill, seeking career advice, or looking for a place to connect with like-minded individuals, AMU SVA is here to help. Our community extends beyond the classroom; we foster lasting bonds through social events, career fairs, workshops, and other initiatives designed to help veterans feel at home at AMU. We work closely with university administration and veteran organizations to address the specific challenges and opportunities of military life transition, whether through scholarship resources, exclusive internship programs, or family support events, ensuring a smooth journey for each veteran and their loved ones.
+        </p>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="relative py-12 px-6 flex justify-between items-center" style="background-color: white;">
+    <!-- Content Box with Dark Professional Ruby Red Background -->
+    <div class="relative z-10 max-w-3xl p-8 mx-auto rounded-lg shadow-lg overflow-auto"
+        style="background: hwb(238 4% 11% / 0.775); height: 400px;">
+
+        <!-- Tommy Image - Centered at the top inside the box -->
+        <img src="army.png" alt="Tommy Image" class="absolute top-0 left-1/2 transform -translate-x-1/2 mt-4 z-10 w-32 h-32 object-cover rounded-full">
+
+        <h2 class="relative z-10 text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600 leading-tight drop-shadow-lg">
+            AMU Student Veterans of America Chapter
+        </h2>
+        <p class="relative z-10 mt-6 text-lg text-white leading-relaxed">
+            A supportive, student-led, family-centered community bridging the gap between service and academic success. Our chapter connects military veterans with valuable resources and networks to help them succeed in their educational and professional endeavors. Whether you’re navigating the GI Bill, seeking career advice, or looking for a place to connect with like-minded individuals, AMU SVA is here to help. Our community extends beyond the classroom; we foster lasting bonds through social events, career fairs, workshops, and other initiatives designed to help veterans feel at home at AMU. We work closely with university administration and veteran organizations to address the specific challenges and opportunities of military life transition, whether through scholarship resources, exclusive internship programs, or family support events, ensuring a smooth journey for each veteran and their loved ones.
         </p>
     </div>
 </section>
 
 
-<!-- Footer Section -->
-<footer class="relative py-12 px-6" style="background-color: white;">
-    <!-- Content Box with Flag Background -->
-    <div class="relative z-10 text-center max-w-3xl mx-auto p-8 rounded-lg shadow-lg bg-white overflow-auto"
-        style="background-image: url('flag6.png'); background-size: cover; background-position: center; height: 400px; position: relative;">
-        <!-- Semi-transparent overlay -->
-        <div class="absolute inset-0 bg-black opacity-40 z-0"></div>
 
-        <!-- Student Image - Positioned at the top inside the box -->
-        <img src="student.png" alt="Student Image" class="relative z-10 w-32 h-32 object-cover rounded-full mx-auto mb-6">
 
-        <!-- Links and Text below the image -->
-        <ul class="relative z-10 flex flex-wrap justify-center space-x-4 text-sm text-white">
+
+
+    <!-- Links Section at the bottom of the page -->
+    <div class="max-w-3xl mx-auto p-8 text-center">
+        <ul class="flex justify-center space-x-4 text-sm text-gray-600">
             <li><a href="#contact" class="hover:underline">Contact</a></li>
             <li><a href="careers.html" class="hover:underline">SVA Career and Social Development</a></li>
             <li><a href="#history" class="hover:underline">SVA History</a></li>
         </ul>
-        <p class="relative z-10 text-sm mt-4 text-white">Contact Us: <a href="mailto:apussva@gmail.com" class="underline">apussva@gmail.com</a></p>
+        <p class="text-sm mt-4 text-gray-600">Contact Us: <a href="mailto:apussva@gmail.com" class="underline">apussva@gmail.com</a></p>
         <div class="mt-4">
             <a href="https://facebook.com" class="join-facebook-button bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Join us on Facebook</a>
         </div>
     </div>
 </footer>
-
-
-<!-- SVA Logo -->
-<div class="bg-white p-2 inline-block">
-    <img src="svax.png" alt="SVA Logo" class="sva-logo w-24 h-auto md:w-32 lg:w-40 object-contain">
-</div>
 
 <script>
     // Toggle the display of the leadership content
