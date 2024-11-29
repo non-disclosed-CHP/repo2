@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMU APUS SVA Chapter</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
 
 <style>
     /* Expandable Box Styles */
@@ -66,7 +67,7 @@ body {
     background-position: center;
     background-attachment: fixed;
 };
-    }
+    
 
     body::before {
         content: "";
@@ -156,7 +157,36 @@ body {
         background-color: rgba(59, 130, 246, 1);
     }
 </style>
-</head>
+</head><body class="bg-gray-100">
+    <body class="bg-gray-900 flex flex-wrap justify-center gap-4 p-10">
+        <!-- Button grid container -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Button elements -->
+            <div class="button bg-red-600 hover:bg-red-700 text-white p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.va.gov/get-help-from-accredited-representative/find-rep/', '_blank')">
+                <span class="font-bold">Find A Local VSO</span>
+            </div>
+            <div class="button bg-white hover:bg-gray-200 text-black p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://amusva.substack.com/chat', '_blank')">
+                <span class="font-bold">Request a Chat</span>
+            </div>
+            <div class="button bg-blue-600 hover:bg-blue-700 text-white p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.militaryonesource.mil/', '_blank')">
+                <span class="font-bold">Military OneSource</span>
+            </div>
+            <div class="button bg-red-600 hover:bg-red-700 text-white p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.veteranscrisisline.net/', '_blank')">
+                <span class="font-bold">The VA Crisis Hotline</span>
+            </div>
+            <div class="button bg-white hover:bg-gray-200 text-black p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.benefits.va.gov/', '_blank')">
+                <span class="font-bold">VA Benefits Overview</span>
+            </div>
+            <div class="button bg-blue-600 hover:bg-blue-700 text-white p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.va.gov/health-care/', '_blank')">
+                <span class="font-bold">VA Health Care</span>
+            </div>
+            <div class="button bg-red-600 hover:bg-red-700 text-white p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.va.gov/homeless/', '_blank')">
+                <span class="font-bold">VA Homeless Assistance</span>
+            </div>
+            <div class="button bg-white hover:bg-gray-200 text-black p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.sva.org/', '_blank')">
+                <span class="font-bold">SVA - Student Veterans</span>
+            </div>
+        </div>
 <body>
 
 <header class="sticky top-0 bg-white z-50 shadow-md">
@@ -174,6 +204,8 @@ body {
         <a href="https://amusva.substack.com" class="hover:underline text-blue-500 font-bold" target="_blank">Our Blog</a>
     </div>
 </header>
+
+
 
 <!-- Leadership Box -->
 <div class="fixed bottom-0 left-0 p-4 bg-gray-100 rounded-lg shadow-md z-50" id="leadershipBox">
@@ -257,7 +289,7 @@ body {
         class="absolute top-0 left-0 h-full w-auto max-w-[15%] object-contain">
 
     <!-- Content (Centered Text) -->
-    <div class="relative z-10 max-w-2xl mx-auto text-center px-6 sm:px-8 transform translate-x-[10%]">
+    <div class="relative z-10 max-w-xl mx-auto text-center px-4 sm:px-6">
         <!-- Smaller Header with a Professional Font -->
         <h1 class="text-lg md:text-xl lg:text-2xl font-bold text-white leading-snug drop-shadow-lg font-inter">
             Welcome to AMU Student Veterans of America
@@ -268,6 +300,8 @@ body {
         </p>
     </div>
 </section>
+
+
 
 <!-- About Section -->
 <section class="relative py-12 px-6 flex justify-between items-center" style="background-color: white;">
@@ -324,10 +358,6 @@ body {
 </section>
 
 
-
-
-
-
     <!-- Links Section at the bottom of the page -->
     <div class="max-w-3xl mx-auto p-8 text-center">
         <ul class="flex justify-center space-x-4 text-sm text-gray-600">
@@ -362,5 +392,170 @@ body {
         bios.forEach(bio => bio.style.display = 'none');
     });
 </script>
+
+
+
+<!-- Show VA facilities with simple data -->
+<div id="vaFacilities"></div>
+
+<!-- Button to trigger data fetch -->
+<button onclick="fetchVAData()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+    Find VA Facilities
+</button>
+
+<script>
+    async function fetchVAData() {
+        const zipcode = document.getElementById('zipcode').value;
+        try {
+            const response = await fetch(`https://api.va.gov/your-endpoint?zipcode=${zipcode}`);
+            const data = await response.json();
+            displayVAData(data);
+        } catch (error) {
+            console.error('Error fetching VA data:', error);
+            document.getElementById('vaFacilities').innerHTML = 'Error fetching data. Please try again later.';
+        }
+    }
+
+    function displayVAData(data) {
+        const vaFacilities = document.getElementById('vaFacilities');
+        vaFacilities.innerHTML = '';
+
+        if (data && data.length > 0) {
+            data.forEach(facility => {
+                vaFacilities.innerHTML += `
+                    <div>
+                        <h4>${facility.name}</h4>
+                        <p>${facility.address}</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(facility.address)}" target="_blank">View on Google Maps</a>
+                    </div>
+                `;
+            });
+        } else {
+            vaFacilities.innerHTML = 'No VA facilities found.';
+        }
+    }
+</script>
+<script>
+    // Toggle the display of the leadership content
+    document.getElementById('toggleButton').addEventListener('click', function() {
+        const content = document.getElementById('content');
+        content.style.display = content.style.display === 'none' || content.style.display === '' ? 'block' : 'none';
+    });
+
+    // Toggle individual leader bios
+    function toggleBio(bioId) {
+        const bio = document.getElementById(bioId);
+        bio.style.display = bio.style.display === 'none' || bio.style.display === '' ? 'block' : 'none';
+    }
+
+    // Initial setup: hide all bios and the expandable content on load
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('content').style.display = 'none';
+        const bios = document.querySelectorAll('.leader-bio');
+        bios.forEach(bio => bio.style.display = 'none');
+    });
+</script>
+
+
+
+
+
+<!-- Right Sidebar -->
+<div id="sidebar" class="fixed bottom-0 right-0 w-1/3 max-w-sm bg-gray-800 bg-opacity-90 backdrop-blur-lg shadow-xl z-50 rounded-t-lg overflow-hidden">
+    <!-- Header with Expand and Minimize Buttons -->
+    <div class="flex justify-between items-center bg-gray-700 p-2">
+        <!-- Container for buttons with no gap -->
+        <div class="flex space-x-2">
+            <!-- Expand Button -->
+            <button id="expandSidebar" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition duration-300">
+                Immediate Resources and Support
+            </button>
+            <!-- Minimize Button -->
+            <button id="minimizeSidebar" class="bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700 transition duration-300">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Sidebar Content -->
+    <div id="sidebarContent" class="p-4 overflow-hidden relative hidden">
+        <!-- Carousel Container -->
+        <div id="carousel" class="space-y-4">
+            <!-- Carousel Buttons with Floating Effects -->
+            <a href="https://www.va.gov/get-help-from-accredited-representative/find-rep/" 
+               target="_blank" 
+               class="carousel-item block bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800 transition duration-300 transform translate-x-0 opacity-0 animate-float">
+                Find A Local VSO Representative with VA.GOV
+            </a>
+            <a href="https://amusva.substack.com/chat" 
+               target="_blank" 
+               class="carousel-item block bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 transform translate-x-0 opacity-0 animate-float">
+                Request a Chat with Our Staff
+            </a>
+            <a href="https://www.militaryonesource.mil/" 
+               target="_blank" 
+               class="carousel-item block bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300 transform translate-x-0 opacity-0 animate-float">
+                Military OneSource
+            </a>
+            <a href="https://www.veteranscrisisline.net/" 
+               target="_blank" 
+               class="carousel-item block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 transform translate-x-0 opacity-0 animate-float">
+                The VA Crisis Hotline
+            </a>
+            <!-- Add more items as needed -->
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    document.getElementById('expandSidebar').addEventListener('click', function () {
+        const sidebarContent = document.getElementById('sidebarContent');
+        sidebarContent.classList.toggle('hidden');
+
+        // Trigger the carousel effect when expanded
+        if (!sidebarContent.classList.contains('hidden')) {
+            const items = document.querySelectorAll('.carousel-item');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.transform = 'translateX(0)';
+                    item.style.opacity = '1';
+                }, index * 300); // Stagger the appearance
+            });
+        }
+    });
+
+    document.getElementById('minimizeSidebar').addEventListener('click', function () {
+        const sidebarContent = document.getElementById('sidebarContent');
+        if (!sidebarContent.classList.contains('hidden')) {
+            sidebarContent.classList.add('hidden');
+
+            // Reset item styles when sidebar is minimized
+            const items = document.querySelectorAll('.carousel-item');
+            items.forEach(item => {
+                item.style.transform = 'translateX(-50%)';
+                item.style.opacity = '0';
+            });
+        }
+    });
+</script>
+
+<!-- CSS for Floating Effects -->
+<style>
+    .animate-float {
+        animation: float 1s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+</style>
+
+
 </body>
 </html>
