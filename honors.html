@@ -18,7 +18,7 @@
 
         .honor-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 15px rgb(0, 0, 0); /* No transparency */c
         }
 
         .honor-name {
@@ -47,49 +47,29 @@
             margin-bottom: 10px;
         }
 
-/* Section Styling */
-section {
-    position: relative; /* Enables layering of the pseudo-element */
-    background: url('eagle.png') no-repeat center top; /* Background image */
-    background-size: 60%; /* Makes the image 40% smaller (100% - 40%) */
+x
+        section {
+    position: relative; /* Enables layering */
+    background: url('eagle.png') no-repeat center; /* Center the eagle image */
+    background-size: contain; /* Ensure the image scales correctly */
+    background-attachment: scroll; /* Make the image scrollable with the content */
+    background-color: #000; /* Ensure contrast with a black background */
     color: white;
     padding: 60px 0;
     text-align: center;
     margin: 60px 0;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background-attachment: fixed; /* Image stays fixed as user scrolls */
-    overflow: hidden; /* Ensures pseudo-element doesn't overflow */
-    animation: pulse 5.25s infinite; /* Slower (75% longer duration) and dramatic animation */
+    overflow: hidden;
 }
 
-/* Pulsating effect for the background */
-@keyframes pulse {
-    0%, 100% {
-        background-size: 60%; /* Default size (40% smaller) */
-    }
-    50% {
-        background-size: 75%; /* Dramatically larger pulse at midpoint */
-    }
-}
-
-/* Remove white areas outside the image */
-section::before {
-    content: ""; /* Creates an empty pseudo-element */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: none; /* No overlay to ensure transparency */
-    z-index: 1; /* Ensures it doesn't obstruct other elements */
-}
-
+/* Ensure content is above the background */
 section > * {
-    position: relative; /* Ensures content is above the background */
+    position: relative;
     z-index: 2;
 }
 
+/* Section Heading */
 section h1 {
     font-size: 3.5rem;
     font-weight: bold;
@@ -97,11 +77,12 @@ section h1 {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Section Paragraph */
 section p {
     font-size: 1.25rem;
 }
 
-/* Button Styling */
+/* Blue Button Styling */
 .expand-btn {
     background-color: #0052A5; /* Blue button */
     color: white;
@@ -117,14 +98,14 @@ section p {
 
 .expand-btn:hover {
     background-color: #003366; /* Darker blue on hover */
-    transform: translateY(-3px); /* Adds slight hover lift */
+    transform: translateY(-3px); /* Slight hover lift */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Pagination buttons */
+/* Pagination Button Styling */
 .pagination-btn {
     background-color: #B22234; /* Red button */
-    color: #f1f5f9; /* Light text for buttons */
+    color: #f1f5f9; /* Light text */
     padding: 10px 18px;
     border-radius: 8px;
     cursor: pointer;
@@ -202,46 +183,36 @@ nav a:hover {
     color: #cbd5e1; /* Light gray color when hovered */
 }
 
-/* Section Styling */
+/* Remove the background image and add an image element */
 section {
-    position: relative; /* Enables layering of the pseudo-element */
-    background: url('eagle.png') no-repeat center top; /* Background image */
-    background-size: 60%; /* Makes the image 40% smaller (100% - 40%) */
+    position: relative;
     color: white;
     padding: 60px 0;
     text-align: center;
     margin: 60px 0;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background-attachment: fixed; /* Image stays fixed as user scrolls */
-    overflow: hidden; /* Ensures pseudo-element doesn't overflow */
-    animation: pulse 5.25s infinite; /* Slower (75% longer duration) and dramatic animation */
 }
 
-/* Pulsating effect for the background */
-@keyframes pulse {
-    0%, 100% {
-        background-size: 60%; /* Default size (40% smaller) */
-    }
-    50% {
-        background-size: 75%; /* Dramatically larger pulse at midpoint */
-    }
-}
-
-/* Remove white areas outside the image */
+/* Image styling */
 section::before {
-    content: ""; /* Creates an empty pseudo-element */
-    position: absolute;
+    content: "";
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: none; /* No overlay to ensure transparency */
-    z-index: 1; /* Ensures it doesn't obstruct other elements */
+    width: auto;
+    height: auto;
+    z-index: 1;
+    background-image: url('eagle.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top left;
+    opacity: 0.7; /* Adjust opacity if needed */
 }
 
+/* Ensure content is above the image */
 section > * {
-    position: relative; /* Ensures content is above the background */
+    position: relative;
     z-index: 2;
 }
 
@@ -354,106 +325,129 @@ section p {
         </div>
     </nav>
 
-    <!-- Honor Wall Section -->
-<section class="px-6 py-16 max-w-7xl mx-auto">
-    <h1>2023 Veterans Day Honor Wall</h1>
-    
-    <p class="text-xl mb-10">Check back daily for a new Honor Wall Spotlight:</p>
+</nav>
+
+
+
+<!-- Honor Wall Section -->
+<section class="px-6 py-16 max-w-7xl mx-auto bg-gradient-to-r from-blue-800 via-blue-900 to-black bg-no-repeat bg-cover bg-center star-pattern">
+    <!-- Banner Section with Image -->
+    <div class="relative mb-12">
+        <img src="army.png" alt="Banner" class="w-full h-auto absolute top-0 left-0 z-[-1] opacity-70">
+        <div class="relative text-center pt-12">
+            <h1 class="text-4xl font-bold mb-4">2023 Veterans Day Honor Wall</h1>
+            <p class="text-xl mb-10">Check back daily for a new Honor Wall Spotlight:</p>
+        </div>
+    </div>
 
     <!-- Honor Wall Honorees -->
-    <div class="honor-card">
-        <h2 class="honor-name" onclick="toggleDescription('bio1')">General James N. Mattis</h2>
-        <p class="honor-date">November 10, 2023</p>
-        <p id="bio1" class="honor-description hidden">United States Marine Corps Veteran & 26th US Secretary of Defense. A tribute to Former Secretary of Defense General James N. Mattis as we commemorate the USMC birthday, our profound respect and admiration are directed towards General James N. Mattis, a luminary in military leadership and strategy. His journey from Pullman, Washington, to key roles…</p>
-    </div>
-
-<div class="honor-card">
-    <h2 class="honor-name" onclick="toggleDescription('bio2')">
-        Major General Lorna Mahlock
-    </h2>
-    <p class="honor-date">November 9, 2023</p>
-    <p id="bio2" class="honor-description hidden">
-        🎖️ <strong>Celebrating Major General Lorna Mahlock’s Barrier-Breaking Leadership 🎖️</strong>
-        <br>
-        Today, we spotlight a figure of resilience, determination, and groundbreaking achievement: Major General Lorna Mahlock of the United States Marine Corps.
-        <br><br>
-        🌟 <strong>From Jamaica to History-Making General</strong>
-        <br>
-        Arriving in the U.S. from Jamaica at just 17, Lorna Mahlock’s journey in the Marines began shortly after, inspired partly by the challenge her brother declined. Her relentless drive led her from the enlisted ranks to becoming the first Black woman to be nominated to the rank of Brigadier General in 2018.
-        <br><br>
-        🎓 <strong>Education and Leadership</strong>
-        <br>
-        Maj. Gen. Mahlock is not only a Marine through and through but also an avid learner and leader. She holds a Master’s degree in Adult and Higher Education from the University of Oklahoma at Norman, a Master’s in National Security and Strategic Studies with distinction from the Naval War College, a Master’s in Strategic Studies from the United States Army War College, and a Master’s Certificate in Information Operations from the Naval Postgraduate School. She is a graduate of the United Kingdom Defense College Higher Command and Staff. Maj. Gen. Mahlock exemplifies lifelong learning. Her leadership roles are extensive, from air command and control to being an instrumental figure in education at the Marine Corps Instructional Management School.
-        <br><br>
-        💡 <strong>Empowering Change and Embracing Diversity</strong>
-        <br>
-        Throughout her service, Maj. Gen. Mahlock has witnessed the lifting of combat restrictions for women and has been a fierce advocate for diversity. “We’re just trying to figure out how to build the best fighting force,” she says, celebrating the inclusion of women across all spectrums of military service.
-        <br><br>
-        🛡️ <strong>At the Helm of Marine Corps IT and Communications</strong>
-        <br>
-        Today, she serves as the deputy director for Combat Support for the National Security Agency’s Cybersecurity Directorate. She previously led the Information, Command, Control, Communications, and Computers Division and served as the deputy commandant for information. From overseeing global IT infrastructure to championing cybersecurity, she ensures that Marines have the tools they need for success in every mission.
-        <br><br>
-        🏅 <strong>A Decorated Career</strong>
-        <br>
-        Her commendable service is marked by numerous awards, including the Legion of Merit and the Defense Meritorious Service Medal. Her career in leadership positions spans the globe, from directing air traffic control to leading troops in combat operations.
-        <br><br>
-        As we honor our veterans, let’s draw inspiration from Major General Mahlock’s unwavering commitment to excellence and her belief in the power of teamwork. Her story reminds us that, indeed, “Ordinary people can do extraordinary things.”
-        <br><br>
-        #VeteransDay #HonorWall #LornaMahlock #MarineCorps #Trailblazer #Inspiration
-    </p>
-</div>
-    <div class="honor-card">
-        <h2 class="honor-name" onclick="toggleDescription('bio3')">Medgar Evers</h2>
-        <p class="honor-date">November 8, 2023</p>
-        <p id="bio3" class="honor-description hidden">United States Army Veteran 🎖️ 2023 Veterans Day Honor Wall: Remembering Medgar Evers Today, we are called to remember the bravery and enduring spirit of Medgar Wiley Evers, a veteran whose battle did not end upon leaving the theater of war but carried on in the pursuit of justice and equality within his own nation.…</p>
-    </div>
-
-    <!-- Additional profiles go here -->
-
-    <!-- Pagination for older posts -->
-    <div class="mt-8 flex justify-center">
-        <button class="pagination-btn">Previous Page</button>
-        <button class="pagination-btn">Next Page</button>
-    </div>
-</section>
-
-<!-- MyCAA Box at the Bottom -->
-<div class="mycaa-box mx-6 mt-12 py-8 rounded-lg shadow-xl">
-    <h2 class="text-2xl font-semibold mb-6 text-center text-white">MyCAA Expands Access: Career Advancement Opportunities Now Available to More Military Spouses</h2>
-    
-    <p class="text-lg mb-4 text-center px-4 text-white">
-        As military families move across the country—and sometimes the world—career development can be challenging, especially for military spouses. The My Career Advancement Account (MyCAA) Scholarship Program is here to change that by helping military spouses overcome these challenges and work toward their career goals. And now, it’s available to even more military spouses!
-    </p>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-        <!-- Example Post -->
-        <div class="post-box bg-red-900 bg-opacity-70 p-6 rounded-lg shadow-lg hover:bg-opacity-90 transition-all">
-            <p class="text-lg font-semibold text-white mb-2">by Nick</p>
-            <p class="text-sm text-white mb-4">October 8, 2024</p>
-            <h3 class="text-lg font-semibold text-white">2024 Annual Member Meeting</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- General James N. Mattis -->
+        <div class="honor-card bg-gradient-to-r from-red-700 via-red-800 to-red-900 bg-opacity-80 text-white p-4 rounded-lg shadow-lg border border-white border-opacity-30">
+            <div class="flex items-center">
+                <img src="mattis.png" alt="General James N. Mattis" class="w-20 h-20 rounded-full mr-4">
+                <div class="flex-1">
+                    <h2 class="text-2xl font-semibold" onclick="toggleDescription('bio1')">General James N. Mattis</h2>
+                    <p class="text-sm mb-4">November 10, 2023</p>
+                    <div id="bio1" class="hidden overflow-auto max-h-0 transition-max-height duration-300">
+                        <p>
+                            United States Marine Corps Veteran & 26th US Secretary of Defense. Honoring General James N. Mattis as we 
+                            celebrate the USMC birthday, recognizing his exceptional leadership and strategic mind.
+                        </p>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleDescription('bio1')">Learn More</button>
+                    <button class="mt-2 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500" onclick="toggleDescription('bio1')">Minimize</button>
+                </div>
+            </div>
         </div>
-<!-- Transparent White Box -->
-<div class="post-box bg-white bg-opacity-30 p-6 rounded-lg shadow-lg hover:bg-opacity-50 transition-all">
-    <p class="text-lg font-semibold text-white mb-2">by Example</p>
-    <p class="text-sm text-white mb-4">October 10, 2024</p>
-    <h3 class="text-lg font-semibold text-white">Upcoming Event</h3>
-</div>
 
-<!-- Transparent Dark Blue Box -->
-<div class="post-box bg-blue-900 bg-opacity-40 p-6 rounded-lg shadow-lg hover:bg-opacity-60 transition-all">
-    <p class="text-lg font-semibold text-white mb-2">by Sample</p>
-    <p class="text-sm text-white mb-4">October 12, 2024</p>
-    <h3 class="text-lg font-semibold text-white">Veteran's Day Celebration</h3>
-</div>
+        <!-- Major General Lorna Mahlock -->
+        <div class="honor-card bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 bg-opacity-90 text-white p-4 rounded-lg shadow-lg border border-white border-opacity-30">
+            <div class="flex items-center">
+                <img src="lorna.png" alt="Major General Lorna Mahlock" class="w-20 h-20 rounded-full mr-4">
+                <div class="flex-1">
+                    <h2 class="text-2xl font-semibold" onclick="toggleDescription('bio2')">Major General Lorna Mahlock</h2>
+                    <p class="text-sm mb-4">November 9, 2023</p>
+                    <div id="bio2" class="hidden overflow-auto max-h-0 transition-max-height duration-300">
+                        <p>
+                            🌟 Celebrating Major General Lorna Mahlock’s Leadership 🌟 From Jamaica to history-making General, 
+                            she became the first Black woman nominated for Brigadier General in 2018. Her career is an inspiration.
+                        </p>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleDescription('bio2')">Learn More</button>
+                    <button class="mt-2 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500" onclick="toggleDescription('bio2')">Minimize</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medgar Evers -->
+        <div class="honor-card bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900 bg-opacity-80 text-white p-4 rounded-lg shadow-lg border border-white border-opacity-30">
+            <div class="flex items-center">
+                <img src="medgar.png" alt="Medgar Evers" class="w-20 h-20 rounded-full mr-4">
+                <div class="flex-1">
+                    <h2 class="text-2xl font-semibold" onclick="toggleDescription('bio3')">Medgar Evers</h2>
+                    <p class="text-sm mb-4">November 8, 2023</p>
+                    <div id="bio3" class="hidden overflow-auto max-h-0 transition-max-height duration-300">
+                        <p>
+                            United States Army Veteran 🎖️ Remembering Medgar Evers: A life of courage, justice, and resilience. 
+                            His legacy continues to inspire all who seek equality.
+                        </p>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500" onclick="toggleDescription('bio3')">Learn More</button>
+                    <button class="mt-2 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500" onclick="toggleDescription('bio3')">Minimize</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dr. Mike Haynie -->
+        <div class="honor-card bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 bg-opacity-90 text-white p-4 rounded-lg shadow-lg border border-white border-opacity-30">
+            <div class="flex items-center">
+                <img src="haynie.png" alt="Dr. Mike Haynie" class="w-20 h-20 rounded-full mr-4">
+                <div class="flex-1">
+                    <h2 class="text-2xl font-semibold" onclick="toggleDescription('bio4')">Dr. Mike Haynie</h2>
+                    <p class="text-sm mb-4">November 7, 2023</p>
+                    <div id="bio4" class="hidden overflow-auto max-h-0 transition-max-height duration-300">
+                        <p>
+                            United States Air Force Veteran 🌟 Veterans Day Honor Wall Spotlight 🌟 Today, we extend our deepest gratitude to Dr. Mike Haynie, a Veteran who continues to serve beyond the call of duty. As a Vice Chancellor and the Barnes Professor of Entrepreneurship at Syracuse University, Dr. Haynie has brought honor to his titles through...
+                        </p>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleDescription('bio4')">Learn More</button>
+                    <button class="mt-2 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500" onclick="toggleDescription('bio4')">Minimize</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- John McCain -->
+        <div class="honor-card bg-gradient-to-r from-red-800 via-red-900 to-red-1000 bg-opacity-90 text-white p-4 rounded-lg shadow-lg border border-white border-opacity-30">
+            <div class="flex items-center">
+                <img src="mccain.png" alt="John McCain" class="w-20 h-20 rounded-full mr-4">
+                <div class="flex-1">
+                    <h2 class="text-2xl font-semibold" onclick="toggleDescription('bio5')">John McCain</h2>
+                    <p class="text-sm mb-4">November 11, 2023</p>
+                    <div id="bio5" class="hidden overflow-auto max-h-0 transition-max-height duration-300">
+                        <p>
+                            United States Navy Veteran and United States Senator. Celebrating the Educational Legacy of Senator John McCain. This Veterans Day, we pause to honor the extraordinary life of Senator John McCain, a dedicated public servant, and a respected naval officer whose commitment to education and service left a lasting impact on the nation. 🎖️ From Naval...
+                        </p>
+                    </div>
+                    <button class="mt-4 px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" onclick="toggleDescription('bio5')">Learn More</button>
+                    <button class="mt-2 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500" onclick="toggleDescription('bio5')">Minimize</button>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
 
 <script>
     function toggleDescription(id) {
         const element = document.getElementById(id);
-        element.classList.toggle('hidden');
+        if (element.classList.contains('hidden')) {
+            element.classList.remove('hidden');
+            element.style.maxHeight = '200px'; // Set max-height for scrollbar
+        } else {
+            element.classList.add('hidden');
+            element.style.maxHeight = '0';
+        }
     }
 </script>
-
 </body>
 </html>
