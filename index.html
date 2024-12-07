@@ -5,195 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMU APUS SVA Chapter</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles2.css"> <!-- Link to your external CSS file -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
-    
-<style>
-    /* Expandable Box Styles */
-    .expandable-box {
-        background-color: rgba(255, 255, 255, 0.54);
-        border: 1px solid rgba(229, 231, 235, 0.54);
-        border-radius: 8px;
-        padding: 16px;
-    }
+    <style>
+        .button-frame {
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-    .expandable-button {
-        background-color: rgba(59, 130, 246, 0.9);
-        color: white;
-        font-size: 1rem;
-        padding: 14px 24px;
-        border-radius: 8px;
-        cursor: pointer;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 16px;
-        transition: background-color 0.3s ease;
-    }
+        .button-frame:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
 
-    .expandable-button:hover {
-        background-color: rgba(59, 130, 246, 1);
-    }
-
-    .leader-name {
-        color: rgba(59, 130, 246, 0.9);
-        font-size: 1.125rem;
-        cursor: pointer;
-        transition: color 0.3s ease;
-    }
-
-    .leader-name:hover {
-        color: rgba(29, 78, 216, 1);
-    }
-
-    .leader-bio {
-        display: none;
-        color: rgba(107, 114, 128, 1);
-        font-size: 1rem;
-        padding: 10px 0;
-    }
-
-/* Main Background Settings */
-body {
-    background-color: #ffffff; /* White background */
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow-x: hidden;
-}
-
-/* Keep the flag background on specific sections (boxes) */
-.section-with-flag {
-    background-image: url('flag2.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-};
-    
-
-    body::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.25);
-        z-index: -1;
-    }
-
-    /* SVA Logo */
-    .sva-logo {
-        position: fixed;
-        right: 10px;
-        bottom: 10px;
-        opacity: 0.54;
-        z-index: 1000;
-    }
-
-    header {
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(5px);
-        padding: 16px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    header a {
-        color: rgba(59, 130, 246, 0.95);
-        transition: color 0.3s ease;
-    }
-
-    a:hover {
-        color: #ffffff;
-        background-color: rgba(59, 130, 246, 0.7);
-    }
-
-    /* Section Styles */
-    section {
-        background-color: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        padding: 60px 0;
-        text-align: center;
-        margin: 40px 0;
-        border-radius: 8px;
-    }
-
-    section h2 {
-        color: rgba(59, 130, 246, 0.9);
-        font-size: 2.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    section p {
-        color: rgba(107, 114, 128, 1);
-        font-size: 1.125rem;
-    }
-
-    /* Footer Styles */
-    footer {
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(5px);
-        padding: 30px 0;
-        text-align: center;
-    }
-
-    footer a {
-        color: rgba(59, 130, 246, 0.9);
-        transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-        color: rgba(59, 130, 246, 1);
-    }
-
-    footer .join-button {
-        background-color: rgba(59, 130, 246, 0.9);
-        color: white;
-        padding: 12px 24px;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-    }
-
-    footer .join-button:hover {
-        background-color: rgba(59, 130, 246, 1);
-    }
-</style>
-</head><body class="bg-gray-100">
-    <body class="bg-gray-900 flex flex-wrap justify-center gap-4 p-10">
-        <!-- Button grid container -->
+<body class="bg-gray-100">
+    <div class="bg-gray-900 flex flex-col items-center gap-6 p-6">
+        <!-- Top Row -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <!-- Button elements -->
-            <div class="button bg-red-600 hover:bg-red-700 text-white p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.va.gov/get-help-from-accredited-representative/find-rep/', '_blank')">
-                <span class="font-bold">Find A Local VSO</span>
+            <!-- Box 1 -->
+            <div class="button-frame border-red-600 hover:border-red-700">
+                <div class="bg-red-600 hover:bg-red-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                    <span class="font-bold">Find A Local VSO</span>
+                </div>
             </div>
-            <div class="button bg-white hover:bg-gray-200 text-black p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://amusva.substack.com/chat', '_blank')">
-                <span class="font-bold">Request a Chat</span>
+            <!-- Box 2 -->
+            <div class="button-frame border-gray-300 hover:border-gray-400">
+                <div class="bg-white hover:bg-gray-100 text-black py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                    <span class="font-bold">Request a Chat</span>
+                </div>
             </div>
-            <div class="button bg-blue-600 hover:bg-blue-700 text-white p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.militaryonesource.mil/', '_blank')">
-                <span class="font-bold">Military OneSource</span>
+            <!-- Box 3 -->
+            <div class="button-frame border-blue-600 hover:border-blue-700">
+                <div class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                    <span class="font-bold">Military OneSource</span>
+                </div>
             </div>
-            <div class="button bg-red-600 hover:bg-red-700 text-white p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.veteranscrisisline.net/', '_blank')">
-                <span class="font-bold">The VA Crisis Hotline</span>
+            <!-- Box 4 -->
+            <div class="button-frame border-red-600 hover:border-red-700">
+                <div class="bg-red-600 hover:bg-red-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                    <span class="font-bold">The VA Crisis Hotline</span>
+                </div>
             </div>
-            <div class="button bg-white hover:bg-gray-200 text-black p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.benefits.va.gov/', '_blank')">
-                <span class="font-bold">VA Benefits Overview</span>
-            </div>
-            <div class="button bg-blue-600 hover:bg-blue-700 text-white p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.va.gov/health-care/', '_blank')">
-                <span class="font-bold">VA Health Care</span>
-            </div>
-            <div class="button bg-red-600 hover:bg-red-700 text-white p-4 flex justify-center items-center rounded shadow-lg cursor-pointer" onclick="window.open('https://www.va.gov/homeless/', '_blank')">
-                <span class="font-bold">VA Homeless Assistance</span>
-            </div>
-            <div class="bg-white hover:bg-gray-100 text-black p-4 flex flex-col items-center justify-center rounded-lg shadow-lg cursor-pointer transition-transform transform hover:scale-105"
-            onclick="window.open('https://www.va.gov/disability/compensation-rates/veteran-rates/', '_blank')">
-           <span class="text-lg font-semibold text-teal-600 mb-2">VA Benefits Calculator</span>
-           <span class="text-sm font-medium text-gray-500">Courtesy: Jason David, CMSgt, USAF (ret.)</span>
-       </div>
         </div>
+
+        <!-- Second Row -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+            <!-- Box 5 -->
+            <div class="button-frame border-gray-300 hover:border-gray-400">
+                <div class="bg-white hover:bg-gray-100 text-black py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                    <span class="font-bold">VA Benefits Overview</span>
+                </div>
+                <a href="https://www.benefits.va.gov/" class="block text-center text-blue-500 hover:underline mt-2">Learn More</a>
+            </div>
+            <!-- Box 6 -->
+            <div class="button-frame border-gray-300 hover:border-gray-400">
+                <div class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                    <span class="font-bold">VA Health Care</span>
+                </div>
+                <a href="https://www.va.gov/health-care/" class="block text-center text-blue-500 hover:underline mt-2">Explore Health Services</a>
+            </div>
+            <!-- Box 7 -->
+            <div class="button-frame border-gray-300 hover:border-gray-400">
+                <div class="bg-red-600 hover:bg-red-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                    <span class="font-bold">VA Homeless Assistance</span>
+                </div>
+                <a href="https://www.va.gov/homeless/" class="block text-center text-blue-500 hover:underline mt-2">Get Assistance</a>
+            </div>
+            <!-- Box 8 (Moved) -->
+            <div class="button-frame border-gray-300 hover:border-gray-400">
+                <div class="bg-white hover:bg-gray-100 text-black py-3 px-4 flex flex-col items-center justify-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                    <span class="text-lg font-semibold text-teal-600 mb-2">VA Benefits Calculator</span>
+                    <span class="text-sm font-medium text-gray-500">Courtesy: Jason David, CMSgt, USAF (ret.)</span>
+                </div>
+            </div>
+        </div>
+    </div>
 <body>
 
-<header class="sticky top-0 bg-white z-50 shadow-md">
-    <div class="container mx-auto flex justify-center space-x-4 text-sm py-2">
+    <header class="fixed bottom-0 right-0 flex flex-col space-y-2 bg-white shadow-md z-50 p-4">
         <a href="honors.html" class="hover:underline">2023 Veterans Day Honor Wall Campaign</a>
         <a href="news.html" class="hover:underline">News</a>
         <a href="events.html" class="hover:underline">Upcoming Chapter Events</a>
@@ -202,12 +91,8 @@ body {
         <a href="careers.html" class="hover:underline">Careers</a>
         <a href="board.html" class="hover:underline">Board Members</a>
         <a href="history.html" class="hover:underline">History</a>
-
-        <!-- New link to Substack -->
         <a href="https://amusva.substack.com" class="hover:underline text-blue-500 font-bold" target="_blank">Our Blog</a>
-    </div>
-</header>
-
+    </header>
 
 
 <!-- Leadership Box -->
@@ -282,25 +167,21 @@ body {
 </script>
 
 <!-- Welcome Section -->
-<section class="relative py-12 px-6 bg-cover bg-center" 
-    style="background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('wflag.png'); filter: brightness(1.2) contrast(1.2);">
-    <!-- Add a transparent overlay on top of the background -->
-    <div class="absolute inset-0 bg-black opacity-40"></div>
-    
-    <!-- Dress Image Justified Left and Same Height as Banner -->
-    <img src="dress.png" alt="Dress Image" 
-        class="absolute top-0 left-0 h-full w-auto max-w-[15%] object-contain">
+<section class="relative py-12 px-6 bg-cover bg-center flex flex-col items-center">
+    <!-- Flex container for the content -->
+    <div class="flex flex-col items-center w-full">
+        <!-- Links or other content above -->
+        <nav class="w-full mb-4">
+            <!-- Your links or navigation elements here -->
+        </nav>
 
-    <!-- Content (Centered Text) -->
-    <div class="relative z-10 max-w-xl mx-auto text-center px-4 sm:px-6">
-        <!-- Smaller Header with a Professional Font -->
-        <h1 class="text-lg md:text-xl lg:text-2xl font-bold text-white leading-snug drop-shadow-lg font-inter">
-            Welcome to AMU Student Veterans of America
-        </h1>
-        <!-- Smaller Text with a Professional Font -->
-        <p class="mt-4 text-xs md:text-sm lg:text-base text-white leading-relaxed font-inter">
-            Empowering Veterans through Community, Resources, and Support. At AMU SVA, we believe in the power of community and the strength that comes from helping each other. As student veterans, we understand the unique challenges that come with balancing academics, transitioning from military life, and building a career.
-        </p>
+        <!-- Video as a longer banner centered -->
+        <div class="flex justify-center w-full">
+            <video autoplay muted loop class="h-auto w-[24%] md:w-[28%] lg:w-[32%] object-contain">
+                <source src="banner.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </div>
 </section>
 
