@@ -24,27 +24,35 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <!-- Box 1 -->
             <div class="button-frame border-red-600 hover:border-red-700">
-                <div class="bg-red-600 hover:bg-red-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
-                    <span class="font-bold">Find A Local VSO</span>
-                </div>
+                <a href="https://www.va.gov/get-help-from-accredited-representative/find-rep/" class="block">
+                    <div class="bg-red-600 hover:bg-red-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                        <span class="font-bold">Find A Local VSO</span>
+                    </div>
+                </a>
             </div>
             <!-- Box 2 -->
             <div class="button-frame border-gray-300 hover:border-gray-400">
-                <div class="bg-white hover:bg-gray-100 text-black py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
-                    <span class="font-bold">Request a Chat</span>
-                </div>
+                <a href="https://amusva.substack.com/chat" class="block">
+                    <div class="bg-white hover:bg-gray-100 text-black py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                        <span class="font-bold">Request a Chat</span>
+                    </div>
+                </a>
             </div>
             <!-- Box 3 -->
             <div class="button-frame border-blue-600 hover:border-blue-700">
-                <div class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
-                    <span class="font-bold">Military OneSource</span>
-                </div>
+                <a href="https://www.militaryonesource.mil" class="block">
+                    <div class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                        <span class="font-bold">Military OneSource</span>
+                    </div>
+                </a>
             </div>
             <!-- Box 4 -->
             <div class="button-frame border-red-600 hover:border-red-700">
-                <div class="bg-red-600 hover:bg-red-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
-                    <span class="font-bold">The VA Crisis Hotline</span>
-                </div>
+                <a href="https://www.research.va.gov/programs/csp/585/crisis.pdf" class="block">
+                    <div class="bg-red-600 hover:bg-red-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+                        <span class="font-bold">The VA Crisis Hotline</span>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -55,7 +63,7 @@
                 <div class="bg-white hover:bg-gray-100 text-black py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
                     <span class="font-bold">VA Benefits Overview</span>
                 </div>
-                <a href="https://www.benefits.va.gov/" class="block text-center text-blue-500 hover:underline mt-2">Learn More</a>
+                <a href="https://www.va.gov/disability/compensation-rates/veteran-rates/" class="block text-center text-blue-500 hover:underline mt-2">Learn More</a>
             </div>
             <!-- Box 6 -->
             <div class="button-frame border-gray-300 hover:border-gray-400">
@@ -71,17 +79,17 @@
                 </div>
                 <a href="https://www.va.gov/homeless/" class="block text-center text-blue-500 hover:underline mt-2">Get Assistance</a>
             </div>
-            <!-- Box 8 (Moved) -->
-            <div class="button-frame border-gray-300 hover:border-gray-400">
-                <div class="bg-white hover:bg-gray-100 text-black py-3 px-4 flex flex-col items-center justify-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
-                    <span class="text-lg font-semibold text-teal-600 mb-2">VA Benefits Calculator</span>
-                    <span class="text-sm font-medium text-gray-500">Courtesy: Jason David, CMSgt, USAF (ret.)</span>
-                </div>
+<!-- Box 8 -->
+<a href="https://www.va.gov/disability/compensation-rates/veteran-rates/" class="block border-blue-600 hover:border-blue-700">
+    <div class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 flex justify-center items-center rounded-lg shadow-md cursor-pointer transform transition duration-300">
+        <span class="font-bold">VA Benefits Calculator</span>
+        <span class="text-sm font-medium text-gray-300">Courtesy: Jason David, CMSgt, USAF (ret.)</span>
+    </div>
+</a>
             </div>
         </div>
     </div>
-<body>
-
+</body>
     <header class="fixed bottom-0 right-0 flex flex-col space-y-2 bg-white shadow-md z-50 p-4">
         <a href="honors.html" class="hover:underline">2023 Veterans Day Honor Wall Campaign</a>
         <a href="news.html" class="hover:underline">News</a>
@@ -338,9 +346,6 @@
         bios.forEach(bio => bio.style.display = 'none');
     });
 </script>
-
-
-
 
 
 
