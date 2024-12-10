@@ -90,18 +90,70 @@
         </div>
     </div>
 </body>
-    <header class="fixed bottom-0 right-0 flex flex-col space-y-2 bg-white shadow-md z-50 p-4">
-        <a href="honors.html" class="hover:underline">2023 Veterans Day Honor Wall Campaign</a>
-        <a href="news.html" class="hover:underline">News</a>
-        <a href="events.html" class="hover:underline">Upcoming Chapter Events</a>
-        <a href="contactus.html" class="hover:underline">Contact Us</a>
-        <a href="committees.html" class="hover:underline">Committees</a>
-        <a href="careers.html" class="hover:underline">Careers</a>
-        <a href="board.html" class="hover:underline">Board Members</a>
-        <a href="history.html" class="hover:underline">History</a>
-        <a href="https://amusva.substack.com" class="hover:underline text-blue-500 font-bold" target="_blank">Our Blog</a>
-    </header>
 
+
+<!-- Static Bottom-Right Vertical Box -->
+<div id="staticBox" class="fixed bottom-4 right-4 z-50 w-64 bg-white rounded-lg shadow-lg border-4">
+    <!-- Header with Minimize/Expand Button -->
+    <div class="relative p-3 bg-gradient-to-r from-red-500 via-white to-blue-500 rounded-t-lg">
+        <h2 class="text-sm font-semibold text-center text-gray-800 uppercase tracking-widest">Quick Links</h2>
+        <button id="toggleButton" class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-800 hover:text-blue-600 focus:outline-none">
+            <span id="toggleIcon" class="text-xl font-bold">-</span>
+        </button>
+    </div>
+
+    <!-- Links Section -->
+    <div id="linksContainer" class="p-4 space-y-2 overflow-hidden transition-all duration-300 max-h-96">
+        <a href="honors.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">2023 Veterans Day Honor Wall Campaign</a>
+        <a href="news.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">News</a>
+        <a href="events.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">Upcoming Chapter Events</a>
+        <a href="contactus.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">Contact Us</a>
+        <a href="committees.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">Committees</a>
+        <a href="careers.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">Careers</a>
+        <a href="board.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">Board Members</a>
+        <a href="history.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">History</a>
+        <a href="https://amusva.substack.com" class="block text-sm font-bold text-red-600 hover:underline" target="_blank">Our Blog</a>
+    </div>
+</div>
+
+<!-- TailwindCSS Particle Effect -->
+<style>
+    /* Subtle Particle Effect */
+    #staticBox {
+        background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15), transparent 70%);
+        position: fixed;
+    }
+
+    /* Outer Glow for Borders */
+    #staticBox::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 0, 0, 0.7),
+            rgba(255, 255, 255, 0.7),
+            rgba(0, 0, 255, 0.7)
+        );
+        filter: blur(6px);
+        z-index: -1;
+        border-radius: 12px;
+    }
+</style>
+
+<script>
+    const toggleButton = document.getElementById("toggleButton");
+    const linksContainer = document.getElementById("linksContainer");
+    const toggleIcon = document.getElementById("toggleIcon");
+
+    toggleButton.addEventListener("click", () => {
+        const isHidden = linksContainer.classList.toggle("hidden");
+        toggleIcon.textContent = isHidden ? "+" : "-";
+    });
+</script>
 
 <!-- Leadership Box -->
 <div class="fixed bottom-0 left-0 p-4 bg-gray-100 rounded-lg shadow-md z-50" id="leadershipBox">
@@ -252,7 +304,7 @@
     <!-- Links Section at the bottom of the page -->
     <div class="max-w-3xl mx-auto p-8 text-center">
         <ul class="flex justify-center space-x-4 text-sm text-gray-600">
-            <li><a href="#contact" class="hover:underline">Contact</a></li>
+            <li><a href="contactus.html" class="hover:underline">Contact</a></li>
             <li><a href="careers.html" class="hover:underline">SVA Career and Social Development</a></li>
             <li><a href="#history" class="hover:underline">SVA History</a></li>
         </ul>
