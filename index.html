@@ -89,71 +89,46 @@
             </div>
         </div>
     </div>
-</body>
 
-
-<!-- Static Bottom-Right Vertical Box -->
-<div id="staticBox" class="fixed bottom-4 right-4 z-50 w-64 bg-white rounded-lg shadow-lg border-4">
-    <!-- Header with Minimize/Expand Button -->
-    <div class="relative p-3 bg-gradient-to-r from-red-500 via-white to-blue-500 rounded-t-lg">
-        <h2 class="text-sm font-semibold text-center text-gray-800 uppercase tracking-widest">Quick Links</h2>
-        <button id="toggleButton" class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-800 hover:text-blue-600 focus:outline-none">
-            <span id="toggleIcon" class="text-xl font-bold">-</span>
-        </button>
-    </div>
-
-    <!-- Links Section -->
-    <div id="linksContainer" class="p-4 space-y-2 overflow-hidden transition-all duration-300 max-h-96">
-        <a href="honors.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">2023 Veterans Day Honor Wall Campaign</a>
-        <a href="news.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">News</a>
-        <a href="events.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">Upcoming Chapter Events</a>
-        <a href="contactus.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">Contact Us</a>
-        <a href="committees.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">Committees</a>
-        <a href="careers.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">Careers</a>
-        <a href="board.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">Board Members</a>
-        <a href="history.html" class="block text-sm font-medium text-gray-800 hover:text-blue-600 hover:underline">History</a>
-        <a href="https://amusva.substack.com" class="block text-sm font-bold text-red-600 hover:underline" target="_blank">Our Blog</a>
-    </div>
-</div>
-
-<!-- TailwindCSS Particle Effect -->
-<style>
-    /* Subtle Particle Effect */
-    #staticBox {
-        background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15), transparent 70%);
-        position: fixed;
-    }
-
-    /* Outer Glow for Borders */
-    #staticBox::before {
-        content: '';
-        position: absolute;
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
-        background: linear-gradient(
-            90deg,
-            rgba(255, 0, 0, 0.7),
-            rgba(255, 255, 255, 0.7),
-            rgba(0, 0, 255, 0.7)
-        );
-        filter: blur(6px);
-        z-index: -1;
-        border-radius: 12px;
-    }
-</style>
-
-<script>
-    const toggleButton = document.getElementById("toggleButton");
-    const linksContainer = document.getElementById("linksContainer");
-    const toggleIcon = document.getElementById("toggleIcon");
-
-    toggleButton.addEventListener("click", () => {
-        const isHidden = linksContainer.classList.toggle("hidden");
-        toggleIcon.textContent = isHidden ? "+" : "-";
-    });
-</script>
+    
+    <body class="bg-gray-100">
+        <header id="sidebar" class="fixed bottom-0 right-0 flex flex-col space-y-4 bg-blue-50 shadow-lg z-50 p-4 rounded-lg">
+            <!-- Expand/Minimize Button -->
+            <button id="expandButton" class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300">Quick Resources</button>
+            <button id="minimizeButton" class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition duration-300 hidden">Minimize</button>
+    
+            <!-- Sidebar Content -->
+            <div id="sidebarContent" class="space-y-3 hidden">
+                <a href="honors.html" class="block px-3 py-2 bg-blue-100 hover:bg-blue-200 rounded transition duration-200">2023 Veterans Day Honor Wall Campaign</a>
+                <a href="news.html" class="block px-3 py-2 bg-blue-100 hover:bg-blue-200 rounded transition duration-200">News</a>
+                <a href="events.html" class="block px-3 py-2 bg-blue-100 hover:bg-blue-200 rounded transition duration-200">Upcoming Chapter Events</a>
+                <a href="contactus.html" class="block px-3 py-2 bg-blue-100 hover:bg-blue-200 rounded transition duration-200">Contact Us</a>
+                <a href="committees.html" class="block px-3 py-2 bg-blue-100 hover:bg-blue-200 rounded transition duration-200">Committees</a>
+                <a href="careers.html" class="block px-3 py-2 bg-blue-100 hover:bg-blue-200 rounded transition duration-200">Careers</a>
+                <a href="board.html" class="block px-3 py-2 bg-blue-100 hover:bg-blue-200 rounded transition duration-200">Board Members</a>
+                <a href="history.html" class="block px-3 py-2 bg-blue-100 hover:bg-blue-200 rounded transition duration-200">History</a>
+                <a href="https://amusva.substack.com" class="block px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-600 font-bold rounded transition duration-200" target="_blank">Our Blog</a>
+            </div>
+        </header>
+    
+        <script>
+            const expandButton = document.getElementById('expandButton');
+            const minimizeButton = document.getElementById('minimizeButton');
+            const sidebar = document.getElementById('sidebarContent');
+    
+            expandButton.addEventListener('click', () => {
+                sidebar.classList.remove('hidden');
+                expandButton.classList.add('hidden');
+                minimizeButton.classList.remove('hidden');
+            });
+    
+            minimizeButton.addEventListener('click', () => {
+                sidebar.classList.add('hidden');
+                minimizeButton.classList.add('hidden');
+                expandButton.classList.remove('hidden');
+            });
+        </script>
+    </body>
 
 <!-- Leadership Box -->
 <div class="fixed bottom-0 left-0 p-4 bg-gray-100 rounded-lg shadow-md z-50" id="leadershipBox">
@@ -277,7 +252,9 @@
             AMU Student Veterans of America Chapter
         </h2>
         <p class="relative z-10 mt-6 text-lg text-white leading-relaxed">
-            A supportive, student-led, family-centered community bridging the gap between service and academic success. Our chapter connects military veterans with valuable resources and networks to help them succeed in their educational and professional endeavors. Whether you’re navigating the GI Bill, seeking career advice, or looking for a place to connect with like-minded individuals, AMU SVA is here to help. Our community extends beyond the classroom; we foster lasting bonds through social events, career fairs, workshops, and other initiatives designed to help veterans feel at home at AMU. We work closely with university administration and veteran organizations to address the specific challenges and opportunities of military life transition, whether through scholarship resources, exclusive internship programs, or family support events, ensuring a smooth journey for each veteran and their loved ones.
+            AMU SVA is committed to creating an empowering and inclusive environment for veterans and servicemembers at AMU. Our chapter is driven by a strong sense of community, where we focus on connecting students with the resources and opportunities they need to achieve academic excellence and professional growth. We understand that transitioning from military life to higher education comes with unique challenges, which is why we offer comprehensive support, including guidance on the GI Bill, career services, and networking events that help foster lasting professional relationships.
+
+Our chapter goes beyond academics to build a supportive network that promotes well-being and camaraderie. Through workshops, social gatherings, career fairs, and family-focused events, we provide a space where veterans can connect, share experiences, and grow together. We partner with university leaders and veteran-focused organizations to enhance the transition process, offering tailored scholarships, internship opportunities, and events that prioritize the success of each veteran and their families. At AMU SVA, we are here to make sure every veteran feels seen, supported, and empowered to succeed.
         </p>
     </div>
 </section>
@@ -289,13 +266,15 @@
         style="background: hwb(238 4% 11% / 0.775); height: 400px; padding-top: 100px;">
 
         <!-- Tommy Image - Centered at the top inside the box -->
-        <img src="army.png" alt="Tommy Image" class="absolute top-4 left-1/2 transform -translate-x-1/2 z-0 w-32 h-32 object-cover rounded-full">
+        <img src="svalead.png" alt="Tommy Image" class="absolute top-4 left-1/2 transform -translate-x-1/2 z-0 w-32 h-32 object-cover rounded-full">
 
         <h2 class="relative z-10 text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600 leading-tight drop-shadow-lg">
             AMU Student Veterans of America Chapter
         </h2>
         <p class="relative z-10 mt-6 text-lg text-white leading-relaxed">
-            A supportive, student-led, family-centered community bridging the gap between service and academic success. Our chapter connects military veterans with valuable resources and networks to help them succeed in their educational and professional endeavors. Whether you’re navigating the GI Bill, seeking career advice, or looking for a place to connect with like-minded individuals, AMU SVA is here to help. Our community extends beyond the classroom; we foster lasting bonds through social events, career fairs, workshops, and other initiatives designed to help veterans feel at home at AMU. We work closely with university administration and veteran organizations to address the specific challenges and opportunities of military life transition, whether through scholarship resources, exclusive internship programs, or family support events, ensuring a smooth journey for each veteran and their loved ones.
+            AMU SVA is dedicated to creating a nurturing, student-led community that supports veterans and those in transition from military to academic life. Our chapter acts as a vital bridge, connecting military service members to resources, guidance, and opportunities that facilitate both educational and career success. Through our regular meetings and active committees, we provide consistent support and a platform for veterans to collaborate and share experiences.
+
+We offer a wide range of events and activities designed to strengthen bonds, from career fairs and professional workshops to social gatherings and family-oriented programs. These initiatives are tailored to create a sense of belonging and community, helping veterans integrate smoothly into university life. Our partnerships with university administration and veteran organizations ensure that we address the distinct challenges faced by service members, offering specialized resources such as scholarships, internship opportunities, and targeted support for veterans and their families. AMU SVA is committed to being a source of ongoing assistance and a space where veterans can thrive both academically and personally.
         </p>
     </div>
 </section>
@@ -304,7 +283,7 @@
     <!-- Links Section at the bottom of the page -->
     <div class="max-w-3xl mx-auto p-8 text-center">
         <ul class="flex justify-center space-x-4 text-sm text-gray-600">
-            <li><a href="contactus.html" class="hover:underline">Contact</a></li>
+            <li><a href="#contact" class="hover:underline">Contact</a></li>
             <li><a href="careers.html" class="hover:underline">SVA Career and Social Development</a></li>
             <li><a href="#history" class="hover:underline">SVA History</a></li>
         </ul>
