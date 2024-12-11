@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMU-SVA Bot Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .fade-in-out {
+            animation: fadeInOut 10s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-800 flex flex-col items-center min-h-screen relative">
+
+    <!-- Banner -->
+    <div class="bg-blue-900 text-white shadow-lg p-4 w-full text-center fixed top-0 left-0 z-10">
+        AMU-SVA AI BOT SUPPORT V1.0
+    </div>
+
+    <!-- Main content area with a margin to push below the banner -->
+    <div class="flex justify-center items-center min-h-screen mt-16">
+        <iframe 
+            src="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/12/11/11/20241211113931-TV8G5T2V.json" 
+            width="350" 
+            height="500" 
+            style="border:none;">
+        </iframe>
+    </div>
+
+    <!-- Decreased size of semi-transparent SVA image positioned to the center left -->
+    <img 
+        src="blackSVA.png" 
+        alt="Black SVA Logo" 
+        class="absolute left-0 top-1/2 transform -translate-y-1/2 w-1/6 opacity-80 fade-in-out">
+</body>
+</html>
